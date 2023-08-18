@@ -12,6 +12,8 @@
 		2863AB192A8E9870007F72AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2863AB182A8E9870007F72AB /* Assets.xcassets */; };
 		2863AB1C2A8E9870007F72AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2863AB1B2A8E9870007F72AB /* Preview Assets.xcassets */; };
 		2863AB272A8E9B31007F72AB /* AnimeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2863AB262A8E9B31007F72AB /* AnimeHomeView.swift */; };
+		2863AB292A8EA0DC007F72AB /* AnimeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2863AB282A8EA0DC007F72AB /* AnimeItemView.swift */; };
+		2863AB2C2A8EA428007F72AB /* AnimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2863AB2B2A8EA428007F72AB /* AnimeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		2863AB182A8E9870007F72AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2863AB1B2A8E9870007F72AB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2863AB262A8E9B31007F72AB /* AnimeHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeHomeView.swift; sourceTree = "<group>"; };
+		2863AB282A8EA0DC007F72AB /* AnimeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeItemView.swift; sourceTree = "<group>"; };
+		2863AB2B2A8EA428007F72AB /* AnimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +57,9 @@
 		2863AB132A8E986F007F72AB /* NanoChallengeWebService */ = {
 			isa = PBXGroup;
 			children = (
-				2863AB222A8E99E5007F72AB /* Core */,
 				2863AB142A8E986F007F72AB /* NanoChallengeWebServiceApp.swift */,
+				2863AB2A2A8EA41B007F72AB /* Model */,
+				2863AB222A8E99E5007F72AB /* Core */,
 				2863AB162A8E986F007F72AB /* ContentView.swift */,
 				2863AB182A8E9870007F72AB /* Assets.xcassets */,
 				2863AB1A2A8E9870007F72AB /* Preview Content */,
@@ -98,8 +103,17 @@
 			isa = PBXGroup;
 			children = (
 				2863AB262A8E9B31007F72AB /* AnimeHomeView.swift */,
+				2863AB282A8EA0DC007F72AB /* AnimeItemView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2863AB2A2A8EA41B007F72AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2863AB2B2A8EA428007F72AB /* AnimeModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,7 +187,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2863AB172A8E986F007F72AB /* ContentView.swift in Sources */,
+				2863AB2C2A8EA428007F72AB /* AnimeModel.swift in Sources */,
 				2863AB152A8E986F007F72AB /* NanoChallengeWebServiceApp.swift in Sources */,
+				2863AB292A8EA0DC007F72AB /* AnimeItemView.swift in Sources */,
 				2863AB272A8E9B31007F72AB /* AnimeHomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
