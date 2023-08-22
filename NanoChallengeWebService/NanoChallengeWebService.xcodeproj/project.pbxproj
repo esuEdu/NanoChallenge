@@ -14,6 +14,10 @@
 		2863AB272A8E9B31007F72AB /* AnimeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2863AB262A8E9B31007F72AB /* AnimeHomeView.swift */; };
 		2863AB292A8EA0DC007F72AB /* AnimeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2863AB282A8EA0DC007F72AB /* AnimeItemView.swift */; };
 		2863AB2C2A8EA428007F72AB /* AnimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2863AB2B2A8EA428007F72AB /* AnimeModel.swift */; };
+		AF5083FB2A8FE5AE00D88F5E /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5083FA2A8FE5AE00D88F5E /* MoviesModel.swift */; };
+		AF5083FF2A9004D500D88F5E /* MovieHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5083FE2A9004D500D88F5E /* MovieHomeView.swift */; };
+		AF67D2B82A93FB4800B316FD /* MovieItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF67D2B72A93FB4800B316FD /* MovieItemViewModel.swift */; };
+		AFB784D62A93E12400D27BF3 /* MovieItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB784D52A93E12400D27BF3 /* MovieItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,11 @@
 		2863AB262A8E9B31007F72AB /* AnimeHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeHomeView.swift; sourceTree = "<group>"; };
 		2863AB282A8EA0DC007F72AB /* AnimeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeItemView.swift; sourceTree = "<group>"; };
 		2863AB2B2A8EA428007F72AB /* AnimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeModel.swift; sourceTree = "<group>"; };
+		AF5083FA2A8FE5AE00D88F5E /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
+		AF5083FE2A9004D500D88F5E /* MovieHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeView.swift; sourceTree = "<group>"; };
+		AF67D2B72A93FB4800B316FD /* MovieItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemViewModel.swift; sourceTree = "<group>"; };
+		AF97E44C2A94FC4000C562CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AFB784D52A93E12400D27BF3 /* MovieItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +66,7 @@
 		2863AB132A8E986F007F72AB /* NanoChallengeWebService */ = {
 			isa = PBXGroup;
 			children = (
+				AF97E44C2A94FC4000C562CD /* Info.plist */,
 				2863AB142A8E986F007F72AB /* NanoChallengeWebServiceApp.swift */,
 				2863AB2A2A8EA41B007F72AB /* Model */,
 				2863AB222A8E99E5007F72AB /* Core */,
@@ -78,6 +88,7 @@
 		2863AB222A8E99E5007F72AB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				AF5083F62A8FE54900D88F5E /* Movies */,
 				2863AB232A8E99EE007F72AB /* Anime */,
 			);
 			path = Core;
@@ -112,8 +123,35 @@
 			isa = PBXGroup;
 			children = (
 				2863AB2B2A8EA428007F72AB /* AnimeModel.swift */,
+				AF5083FA2A8FE5AE00D88F5E /* MoviesModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AF5083F62A8FE54900D88F5E /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				AF5083F92A8FE56300D88F5E /* View */,
+				AF5083F72A8FE55300D88F5E /* ViewModel */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
+		AF5083F72A8FE55300D88F5E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF67D2B72A93FB4800B316FD /* MovieItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF5083F92A8FE56300D88F5E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF5083FE2A9004D500D88F5E /* MovieHomeView.swift */,
+				AFB784D52A93E12400D27BF3 /* MovieItem.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,9 +224,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF5083FF2A9004D500D88F5E /* MovieHomeView.swift in Sources */,
 				2863AB172A8E986F007F72AB /* ContentView.swift in Sources */,
+				AFB784D62A93E12400D27BF3 /* MovieItem.swift in Sources */,
 				2863AB2C2A8EA428007F72AB /* AnimeModel.swift in Sources */,
+				AF5083FB2A8FE5AE00D88F5E /* MoviesModel.swift in Sources */,
 				2863AB152A8E986F007F72AB /* NanoChallengeWebServiceApp.swift in Sources */,
+				AF67D2B82A93FB4800B316FD /* MovieItemViewModel.swift in Sources */,
 				2863AB292A8EA0DC007F72AB /* AnimeItemView.swift in Sources */,
 				2863AB272A8E9B31007F72AB /* AnimeHomeView.swift in Sources */,
 			);
@@ -319,9 +361,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NanoChallengeWebService/Preview Content\"";
-				DEVELOPMENT_TEAM = SVGXRR5RRA;
+				DEVELOPMENT_TEAM = 5Y55P884H9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NanoChallengeWebService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -348,9 +393,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NanoChallengeWebService/Preview Content\"";
-				DEVELOPMENT_TEAM = SVGXRR5RRA;
+				DEVELOPMENT_TEAM = 5Y55P884H9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NanoChallengeWebService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
