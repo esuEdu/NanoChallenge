@@ -47,10 +47,10 @@ struct SpokenLanguage: Codable {
 
 ///Struct que serve para armazanear a resposta da função discover movies
 struct responceDiscoverMovies: Codable {
-    let page: Int
-    let results: [Movie]
-    let totalPages: Int
-    let totalResults: Int
+    let page: Int?
+    let results: [Movie]?
+    let totalPages: Int?
+    let totalResults: Int?
 }
 
 ///Enum usado para gerênciar erros
