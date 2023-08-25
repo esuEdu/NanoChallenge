@@ -42,16 +42,40 @@ struct TVSerieDetail: View {
                 Text(series.name)
                     .font(.system(size: 35, weight: .bold))
                     .foregroundColor(.white)
-                Text("\(seriesDetailVM.vote_average)")
-                    .foregroundColor(.white)
                 // Listar as estrelas
                 HStack {
-                    ForEach(0...4, id: \.self){ image in
-                        
+                    ForEach(0..<Int(seriesDetailVM.vote_average), id: \.self){
+                        image in
                         Image("fillStar")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 26, height: 26)
+                    }
+                    // Verificar se é maior que 0.50 para por a estrela meia bomba
+                    if (seriesDetailVM.vote_average - Double(Int(seriesDetailVM.vote_average))) >= 0.5 {
+                        Image("semiFillStar")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 26, height: 26)
+                    }
+                    // Colocar o resto das estrelas - verifica se ja existe uma entrela meia boma
+                    if (seriesDetailVM.vote_average - Double(Int(seriesDetailVM.vote_average))) >= 0.5 {
+                        ForEach(0...(3 - Int(seriesDetailVM.vote_average)), id: \.self) {
+                            image in
+                            Image("notFillStar")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 26, height: 26)
+                        }
+                        // caso nao tenha ele bota todas normal, caso tenha ele bota uma a menos
+                    } else {
+                        ForEach(0...(4 - Int(seriesDetailVM.vote_average)), id: \.self) {
+                            image in
+                            Image("notFillStar")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 26, height: 26)
+                        }
                     }
                     Spacer()
                     // Botaão de favoritos
