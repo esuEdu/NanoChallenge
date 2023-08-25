@@ -14,6 +14,14 @@
 		2863AB272A8E9B31007F72AB /* AnimeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2863AB262A8E9B31007F72AB /* AnimeHomeView.swift */; };
 		2863AB292A8EA0DC007F72AB /* AnimeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2863AB282A8EA0DC007F72AB /* AnimeItemView.swift */; };
 		2863AB2C2A8EA428007F72AB /* AnimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2863AB2B2A8EA428007F72AB /* AnimeModel.swift */; };
+		BA8D8BC72A9928F200CE5BE6 /* SerieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BC62A9928F200CE5BE6 /* SerieCard.swift */; };
+		BA8D8BC92A99291100CE5BE6 /* GenreDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BC82A99291100CE5BE6 /* GenreDesign.swift */; };
+		BA8D8BCB2A99297500CE5BE6 /* ScrollCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BCA2A99297500CE5BE6 /* ScrollCardView.swift */; };
+		BA8D8BCE2A9929AC00CE5BE6 /* SerieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BCD2A9929AC00CE5BE6 /* SerieViewModel.swift */; };
+		BA8D8BD02A9929F900CE5BE6 /* SerieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BCF2A9929F900CE5BE6 /* SerieDetailViewModel.swift */; };
+		BA8D8BD22A992A3700CE5BE6 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD12A992A3700CE5BE6 /* Series.swift */; };
+		BA8D8BD52A992AA900CE5BE6 /* MainSerieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD42A992AA900CE5BE6 /* MainSerieView.swift */; };
+		BA8D8BD72A992ACD00CE5BE6 /* SerieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD62A992ACD00CE5BE6 /* SerieDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +33,14 @@
 		2863AB262A8E9B31007F72AB /* AnimeHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeHomeView.swift; sourceTree = "<group>"; };
 		2863AB282A8EA0DC007F72AB /* AnimeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeItemView.swift; sourceTree = "<group>"; };
 		2863AB2B2A8EA428007F72AB /* AnimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeModel.swift; sourceTree = "<group>"; };
+		BA8D8BC62A9928F200CE5BE6 /* SerieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieCard.swift; sourceTree = "<group>"; };
+		BA8D8BC82A99291100CE5BE6 /* GenreDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreDesign.swift; sourceTree = "<group>"; };
+		BA8D8BCA2A99297500CE5BE6 /* ScrollCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCardView.swift; sourceTree = "<group>"; };
+		BA8D8BCD2A9929AC00CE5BE6 /* SerieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieViewModel.swift; sourceTree = "<group>"; };
+		BA8D8BCF2A9929F900CE5BE6 /* SerieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieDetailViewModel.swift; sourceTree = "<group>"; };
+		BA8D8BD12A992A3700CE5BE6 /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
+		BA8D8BD42A992AA900CE5BE6 /* MainSerieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSerieView.swift; sourceTree = "<group>"; };
+		BA8D8BD62A992ACD00CE5BE6 /* SerieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +94,7 @@
 		2863AB222A8E99E5007F72AB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BA8D8BC52A9928D700CE5BE6 /* Serie */,
 				2863AB232A8E99EE007F72AB /* Anime */,
 			);
 			path = Core;
@@ -114,6 +131,45 @@
 				2863AB2B2A8EA428007F72AB /* AnimeModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BA8D8BC42A9928B600CE5BE6 /* ComponetnsSeries */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D8BC62A9928F200CE5BE6 /* SerieCard.swift */,
+				BA8D8BC82A99291100CE5BE6 /* GenreDesign.swift */,
+				BA8D8BCA2A99297500CE5BE6 /* ScrollCardView.swift */,
+			);
+			path = ComponetnsSeries;
+			sourceTree = "<group>";
+		};
+		BA8D8BC52A9928D700CE5BE6 /* Serie */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D8BD32A992A8300CE5BE6 /* View */,
+				BA8D8BCC2A99299500CE5BE6 /* ViewModel */,
+				BA8D8BC42A9928B600CE5BE6 /* ComponetnsSeries */,
+			);
+			path = Serie;
+			sourceTree = "<group>";
+		};
+		BA8D8BCC2A99299500CE5BE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D8BCD2A9929AC00CE5BE6 /* SerieViewModel.swift */,
+				BA8D8BCF2A9929F900CE5BE6 /* SerieDetailViewModel.swift */,
+				BA8D8BD12A992A3700CE5BE6 /* Series.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BA8D8BD32A992A8300CE5BE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D8BD42A992AA900CE5BE6 /* MainSerieView.swift */,
+				BA8D8BD62A992ACD00CE5BE6 /* SerieDetail.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,9 +243,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2863AB172A8E986F007F72AB /* ContentView.swift in Sources */,
+				BA8D8BC92A99291100CE5BE6 /* GenreDesign.swift in Sources */,
 				2863AB2C2A8EA428007F72AB /* AnimeModel.swift in Sources */,
+				BA8D8BCB2A99297500CE5BE6 /* ScrollCardView.swift in Sources */,
+				BA8D8BCE2A9929AC00CE5BE6 /* SerieViewModel.swift in Sources */,
+				BA8D8BC72A9928F200CE5BE6 /* SerieCard.swift in Sources */,
+				BA8D8BD52A992AA900CE5BE6 /* MainSerieView.swift in Sources */,
+				BA8D8BD72A992ACD00CE5BE6 /* SerieDetail.swift in Sources */,
 				2863AB152A8E986F007F72AB /* NanoChallengeWebServiceApp.swift in Sources */,
 				2863AB292A8EA0DC007F72AB /* AnimeItemView.swift in Sources */,
+				BA8D8BD22A992A3700CE5BE6 /* Series.swift in Sources */,
+				BA8D8BD02A9929F900CE5BE6 /* SerieDetailViewModel.swift in Sources */,
 				2863AB272A8E9B31007F72AB /* AnimeHomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
