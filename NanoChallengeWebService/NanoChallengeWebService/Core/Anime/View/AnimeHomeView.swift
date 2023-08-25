@@ -19,13 +19,13 @@ struct AnimeHomeView: View {
                         NavigationLink(value: anime) {
                             AnimeItemView(anime: anime)
                         }
-                            .onAppear {
-                                Task {
-                                    if anime == viewModel.trendingAnimeList.last && viewModel.hasNextPage == true {
-                                        try? await viewModel.fetchAnimeNextPage()
-                                    }
+                        .onAppear {
+                            Task {
+                                if anime == viewModel.trendingAnimeList.last && viewModel.hasNextPage == true {
+                                    try? await viewModel.fetchAnimeNextPage()
                                 }
                             }
+                        }
                     }
                 }
                 .task {
@@ -37,6 +37,11 @@ struct AnimeHomeView: View {
 }
 struct AnimeHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        AnimeHomeView()
+        NavigationStack{
+            AnimeHomeView()
+                .navigationDestination(for: AnimeModel.self ) { anime in
+                    AnimeView()
+                }
+        }
     }
 }

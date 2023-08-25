@@ -24,6 +24,7 @@ class AnimeImageViewModel: ObservableObject {
         isLoading = true
         
         Task {
+            
             do {
                 let image = try await dataService.getImage()
                 self.image = image
