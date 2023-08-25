@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieItem: View {
     
+    var idMovie: Int
     @State var movieItem:Movie?
     @State var movieServe: MovieService = MovieService()
     
@@ -59,6 +60,6 @@ struct MovieItem: View {
 
 struct MovieItem_Previews: PreviewProvider {
     static var previews: some View {
-        MovieItem()
+        MovieItem(idMovie: 400)
     }
 }

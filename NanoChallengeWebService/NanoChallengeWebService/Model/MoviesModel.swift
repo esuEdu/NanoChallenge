@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Movie: Codable, Identifiable {
     let adult: Bool
-//    let backdropPath: String?
+    let backdropPath: String?
     let genres: [Genre]?
     let homepage: String?
     let id: Int
@@ -60,3 +61,24 @@ enum GHError: Error {
     case invalidResponse
     case invalidData
 }
+
+//struct GenresDesign: PreviewProvider {
+//    typealias Previews = <#type#>
+//
+//    var name: String?
+//
+////    static var previews: some View {
+////        GenresDesign(name: "Ação")
+////    }
+//
+//    var body: some View {
+//        Button(action: {}) {
+//            if let nameGenre = name {
+//                Text(nameGenre)
+//            } else {
+//                Text("Gênero inexistente")
+//            }
+//        }
+//    }
+//}
+
