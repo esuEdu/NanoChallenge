@@ -56,11 +56,11 @@ struct MovieItem: View {
                 if movieItem?.overview == ""{
                     Text("Description not found")
                         .padding(.top)
-                        .foregroundColor(Color("TextColor"))
+                        .foregroundColor(Color.red)
                 } else {
                     Text(movieItem?.overview ?? "Sem overview")
                         .padding(.top)
-                        .foregroundColor(Color("TextColor"))
+                        .foregroundColor(Color.red)
                 }
                 
                 

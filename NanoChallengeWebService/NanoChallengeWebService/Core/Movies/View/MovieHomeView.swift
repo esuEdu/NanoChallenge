@@ -113,33 +113,45 @@ struct MovieHomeView: View {
                                 ForEach(responseMovieDiscover.results ?? [], id: \.id) { movie in
                                     NavigationLink(destination: MovieItem(idMovie: movie.id)) {
                                         VStack {
-                                            if let backdropPath = movie.backdropPath {
-                                                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(backdropPath)")) { image in
-                                                    image
-                                                        .resizable()
-                                                        .scaledToFill()
-                                                        .background(Color.white)
-                                                        .frame(maxWidth: 185, maxHeight: 230)
-                                                        .cornerRadius(16)
-                                                        .shadow(radius: 8, x: 5, y: 5)
-                                                        .overlay {
-                                                            RoundedRectangle(cornerRadius: 16)
-                                                                .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-                                                        }
-                                                } placeholder: {
-                                                    RoundedRectangle(cornerRadius: 16)
-                                                        .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-                                                        .frame(width: 160, height: 230)
-                                                        .overlay {
-                                                            ProgressView()
-                                                                .scaleEffect(4)
-                                                                .frame(maxHeight: 96)
-                                                                .padding()
-                                                        }
-                                                }
-                                            } else {
-                                                Text(Strings.imageError.rawValue)
-                                            }
+//                                            if let backDropPath = movie.backdropPath {
+                                            //https://image.tmdb.org/t/p/original/vB8o2p4ETnrfiWEgVxHmHWP9yRl.jpg
+//                                            if let backDropPath = movie.backdropPath {
+                                            AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(movie.backdropPath ?? "/vB8o2p4ETnrfiWEgVxHmHWP9yRl.jpg")")) { image in
+                                                   image
+                                                       .resizable()
+                                                       .aspectRatio(contentMode: .fill) // Use fill here
+                                                       .frame(maxWidth: 185, maxHeight: 230)
+                                                       .cornerRadius(16)
+//                                                       .shadow(radius: 8, x: 5, y: 5)
+//                                                       .overlay(
+//                                                           RoundedRectangle(cornerRadius: 16)
+//                                                               .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+//                                                       )
+                                               } placeholder: {
+                                                   ProgressView()
+                                                       .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                                                       .scaleEffect(4)
+                                                       .frame(maxHeight: 96)
+                                               }
+//                                           }
+//                                            } else {
+//                                                Text("N tem imagem essa budega 🖼️")
+//                                            }
+                                            //                                        AsyncImage(url: URL(string: "https://www.example.com/sample-image.jpg")) { image in
+                                            //                                            image
+                                            //                                                .resizable()
+                                            //                                                .scaledToFill()
+                                            //                                                .frame(maxWidth: 185, maxHeight: 230)
+                                            //                                                .cornerRadius(16)
+                                            //                                        }
+                                            //                                        .placeholder {
+                                            //                                            Color.gray.frame(width: 160, height: 230)
+                                            //                                        }
+                                            
+                                            
+                                            //                                    } else {
+                                            //                                        Text(Strings.imageError.rawValue)
+                                            //                                    }
                                             
                                             if let title = movie.title {
                                                 Text(title)

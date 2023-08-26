@@ -8,8 +8,8 @@
 import Foundation
 
 class MovieService {
-    private let apiKey = "51b118788f608c33046a9420adb65886"
-    private let baseURL = "https://api.themoviedb.org/3/movie"
+    let apiKey = "51b118788f608c33046a9420adb65886"
+    let baseURL = "https://api.themoviedb.org/3/movie"
     
     ///Retorna um filme usando id como parâmetro
     func getMovie(id: Int) async throws -> Movie {
@@ -53,7 +53,8 @@ class MovieService {
         
         do {
             let decoder = JSONDecoder()
-            
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
             return try decoder.decode(responceDiscoverMovies.self, from: data)
         } catch {
             throw GHError.invalidData
@@ -62,7 +63,6 @@ class MovieService {
     
     ///Retorna filmes de um gênero específico, tem como parâmetro o id do gênero
     func getDiscoverMoviesGenre(idGenre: Int) async throws -> responceDiscoverMovies {
-
 
         let endpoint = "https://api.themoviedb.org/3/discover/movie?api_key=\(apiKey)&with_genres=\(idGenre)"
 
