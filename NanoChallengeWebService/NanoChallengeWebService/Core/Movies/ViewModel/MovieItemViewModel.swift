@@ -78,6 +78,7 @@ class MovieService {
 
         do {
             let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
 
             return try decoder.decode(responceDiscoverMovies.self, from: data)
         } catch {
