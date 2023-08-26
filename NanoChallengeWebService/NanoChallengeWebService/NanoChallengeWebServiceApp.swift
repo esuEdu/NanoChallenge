@@ -14,7 +14,7 @@ struct NanoChallengeWebServiceApp: App {
             NavigationStack{
                 ContentView()
                     .navigationDestination(for: AnimeModel.self ) { anime in
-                        AnimeView()
+                        AnimeView(anime: anime)
                     }
             }
         }

@@ -11,9 +11,9 @@ class AnimeViewModel: ObservableObject {
     @Published var anime: [AnimeModel] = []
     let service = AnimeDataService()
     
-    func fetchAnimeData() async throws {
+    func fetchAnimeData(id: Int) async throws {
         do {
-            let response = try await service.getAnime(id: 1)
+            let response = try await service.getAnime(id: id)
             await MainActor.run(body: {
                 self.anime = response
             })

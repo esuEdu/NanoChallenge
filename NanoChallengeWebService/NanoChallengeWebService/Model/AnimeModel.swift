@@ -36,7 +36,7 @@ struct PageInfoModel: Codable {
     var nextPage: Int?
     
     enum CodingKeys: String, CodingKey {
-        case hasNextPage = "hasNextPage"
+        case hasNextPage
         case nextPage = "lastPage"
     }
 }

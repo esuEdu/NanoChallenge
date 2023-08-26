@@ -17,7 +17,7 @@ query ($page: Int, $sort: [MediaSort], $search: String) {
           lastPage
         }
 
-    media(type: ANIME, sort: $sort, search: $search) {
+    media(type: ANIME, sort: $sort, search: $search, isAdult: false) {
             id
             title{
                 english
@@ -31,8 +31,6 @@ query ($page: Int, $sort: [MediaSort], $search: String) {
         }
   }
 }
-
-
 """
     
     let queryAnime = """

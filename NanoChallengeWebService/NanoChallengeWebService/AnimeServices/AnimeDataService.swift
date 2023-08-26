@@ -12,9 +12,9 @@ class AnimeDataService {
     let queryManager = QueryManager()
     let networkingManager = NetworkingManager()
     
-    func getTrendingAnime(page: Int?) async throws -> ([AnimeModel], PageInfoModel) {
+    func getAnime(page: Int?, sort: [String]?, search: String?) async throws -> ([AnimeModel], PageInfoModel) {
         do {
-            let urlRequest = try queryManager.RequestAnimePage(page: page, sort: ["TRENDING_DESC"], search: nil)
+            let urlRequest = try queryManager.RequestAnimePage(page: page, sort: sort, search: search)
             let response = try await networkingManager.downloadRequest(url: urlRequest)
             let decoder = JSONDecoder()
             let apiResponse = try decoder.decode(responseAPI.self, from: response )
@@ -38,6 +38,5 @@ class AnimeDataService {
         } catch {
             throw URLError(.badURL)
         }
-
     }
 }

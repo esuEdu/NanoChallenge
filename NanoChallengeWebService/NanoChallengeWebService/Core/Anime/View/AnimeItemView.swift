@@ -14,11 +14,12 @@ struct AnimeItemView: View {
     var body: some View {
         VStack(alignment: .leading){
             AnimeImageView(anime: anime)
-                .frame(maxWidth: 110, maxHeight: 180)
+                .frame(width: 120, height: 180)
             Text((anime.title.english ?? anime.title.romaji ?? anime.title.native) ?? "No name")
                 .foregroundColor(.black)
                 .lineLimit(2)
-                .frame(maxWidth: 110)
+                .frame(maxWidth: 120)
         }
+        .frame(maxWidth: 120, maxHeight: 200)
     }
 }
