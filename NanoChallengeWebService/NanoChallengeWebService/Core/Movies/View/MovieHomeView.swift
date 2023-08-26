@@ -1,10 +1,9 @@
 import SwiftUI
 
-enum Strings: String {
-    case imageError = "Image Error"
-    case titleError = "Title Error"
-}
-
+//enum Strings: String {
+//    case imageError = "Image Error"
+//    case titleError = "Title Error"
+//}
 
 
 ///Vier que exibe os filmes
@@ -16,7 +15,7 @@ struct MovieHomeView: View {
     @State var moviesRomance: responceDiscoverMovies?
 
 //    @StateObject var viewModel:MovieHomeViewModel = MovieHomeViewModel()
-    
+
     var body: some View {
         VStack {
         NavigationView {

@@ -7,24 +7,24 @@
 
 import SwiftUI
 
-//Componente que exibe horizontalmente um array de Filmes, mostra o título e banner deles
-struct ScrollMovies: View {
-    let movies: [Movie]
-    
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack {
-                ForEach(movies) { movie in
-                    NavigationLink {
-                        MovieItem(idMovie: movie.id)
-                    } label: {
-                        MovieDesignScrollView(movie: movie)
-                    }
-                }
-            }
-        }
-    }
-}
+////Componente que exibe horizontalmente um array de Filmes, mostra o título e banner deles
+//struct ScrollMovies: View {
+//    let movies: [Movie]
+//    
+//    var body: some View {
+//        ScrollView(.horizontal, showsIndicators: false) {
+//            LazyHStack {
+//                ForEach(movies) { movie in
+//                    NavigationLink {
+//                        MovieItem(movieItem: movie)
+//                    } label: {
+//                        MovieDesignScrollView(movie: movie)
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 /*
  var body: some View {
  

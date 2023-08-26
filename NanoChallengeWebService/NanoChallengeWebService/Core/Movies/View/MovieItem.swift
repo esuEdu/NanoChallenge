@@ -9,11 +9,8 @@ import SwiftUI
 
 struct MovieItem: View {
     
-    @State var idMovie: Int
     @State var movieItem: Movie?
-    @State var banner: String?
     @State var isFavorite: Bool? = nil
-    
     @State var movieServe: MovieService? = MovieService()
     
     
@@ -47,13 +44,15 @@ struct MovieItem: View {
                     .foregroundColor(.white)
                 
                                     // Listar todos os generos
-//                                    HStack {
-//                                        ForEach((movieItem?.genres)!, id: \.id){
-//                                            genre in
-//                                            GenresDesign(name: genre.name ?? "")
-//                                        }
-//                                    }
-//                 verifica se exisgte descricao no retorno da API
+                
+                HStack {
+                    if let genres = movieItem?.genres {
+                        ForEach(genres, id: \.id){
+                            genre in
+                            GenresDesign(name: genre.name ?? "")
+                        }
+                    }
+                }
                 
                 
                 
@@ -68,15 +67,10 @@ struct MovieItem: View {
                 }
                 
                 VStack(alignment: .leading, spacing: 15){
-                    //                                Text(series.name)
-                    //                                    .font(.system(size: 35, weight: .bold))
-                    //                                    .foregroundColor(.white)
-                    //                                // Listar as estrelas
+                    
                     HStack {
                         if let voteAverage = movieItem?.voteAverage {
-//                            Text("\(voteAverage)")
-//                                .foregroundColor(.yellow)
-//
+
                             let average = voteAverage / 2
                             let fullStars = Int(average)
                             let hasHalfStar = (average - Double(fullStars)) >= 0.5
@@ -130,7 +124,7 @@ struct MovieItem: View {
         .background(.black)
         .task {
             do {
-                movieItem = try await movieServe?.getMovie(id: idMovie)
+                movieItem = try await movieServe?.getMovie(id: movieItem!.id)
                 
             } catch GHError.invalidURL {
                 print("Invalid URL")
@@ -146,11 +140,11 @@ struct MovieItem: View {
 }
         
 
-struct MovieItem_Previews: PreviewProvider {
-    static var previews: some View {
-        MovieItem(idMovie: 298618)
-    }
-}
+//struct MovieItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MovieItem(idMovie: 298618)
+//    }
+//}
 
 struct GenresDesign: View {
     
@@ -160,6 +154,6 @@ struct GenresDesign: View {
         Button(action: {}) {
             Text(name)
         }
-        .border(Color.blue, width: 2)
+//        .border(Color.blue, width: 2)
     }
 }

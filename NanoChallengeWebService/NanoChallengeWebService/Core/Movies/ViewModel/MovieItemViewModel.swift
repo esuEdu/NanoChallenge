@@ -7,15 +7,32 @@
 
 import Foundation
 import SwiftUI
-//
+
 //class MovieHomeViewModel: ObservableObject {
 //    @Published var movieService: MovieService = MovieService()
 //    @Published var responseMovieDiscover: responceDiscoverMovies?
 //    @Published var moviesAdventure: responceDiscoverMovies?
 //    @Published var moviesRomance: responceDiscoverMovies?
-//    
-//
 //}
+
+//Componente que exibe horizontalmente um array de Filmes, mostra o título e banner deles
+struct ScrollMovies: View {
+    let movies: [Movie]
+    
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack {
+                ForEach(movies) { movie in
+                    NavigationLink {
+                        MovieItem(movieItem: movie)
+                    } label: {
+                        MovieDesignScrollView(movie: movie)
+                    }
+                }
+            }
+        }
+    }
+}
 
 class MovieService {
     let apiKey = "51b118788f608c33046a9420adb65886"
