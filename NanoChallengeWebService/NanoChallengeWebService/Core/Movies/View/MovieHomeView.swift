@@ -1,18 +1,12 @@
 import SwiftUI
 
-//enum Strings: String {
-//    case imageError = "Image Error"
-//    case titleError = "Title Error"
-//}
-
-
-///Vier que exibe os filmes
+///View que exibe os filmes
 struct MovieHomeView: View {
-    @State var movieService: MovieService = MovieService()
+    @State var movieService: MovieService = MovieService()  //Classe que contém lógica de requisições de api.
 
-    @State var responseMovieDiscover: responceDiscoverMovies?
-    @State var moviesAdventure: responceDiscoverMovies?
-    @State var moviesRomance: responceDiscoverMovies?
+    @State var responseMovieDiscover: responceDiscoverMovies? //Recebe da API filmes recentes
+    @State var moviesAdventure: responceDiscoverMovies? //Recebe da API filmes de aventura
+    @State var moviesRomance: responceDiscoverMovies? //Recebe da API filmes de romance
 
 //    @StateObject var viewModel:MovieHomeViewModel = MovieHomeViewModel()
 
@@ -23,15 +17,16 @@ struct MovieHomeView: View {
                 VStack {
 
                     //MARK: Filmes recentes
-                    HearderSrollMovie(title: "Movies")
-                    ScrollMovies(movies:  responseMovieDiscover?.results ?? [])
+                    HearderSrollMovie(title: "Movies") //Header do ScrollMovies (título e "All Movies")
+                    ScrollMovies(movies:  responseMovieDiscover?.results ?? []) //ScrollMovies exibindo todos os filmes.
                 
                     //MARK: Filmes de ação
-                    HearderSrollMovie(title: GenreMovie.adventure.name)
+                    HearderSrollMovie(title: GenreMovie.adventure.name) //GenreMovie.adventure.name = "adventure"
                     ScrollMovies(movies:  moviesAdventure?.results ?? [])
                     
                     //MARK: Filmes de romance
-                    HearderSrollMovie(title: GenreMovie.romance.name)
+                    HearderSrollMovie(title: GenreMovie.romance.name)   //GenreMovie.romance.name = "romance"
+
                     ScrollMovies(movies:  moviesRomance?.results ?? [])
                     
                     

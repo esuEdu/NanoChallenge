@@ -12,13 +12,14 @@ struct MovieDesignScrollView: View {
     
     let movie: Movie
     
-    //TODO: Colocar placeholder com animação de carregamento
     var body: some View {
         VStack {
+            //MARK: - IMAGENS
             if let backDropPath = movie.backdropPath {
                 AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(backDropPath)")) { image in
                     image
-                        .resizable()
+                    //MARK: Estilização do banner dos filmes presentes na ScrollMovies
+                    .resizable()
                     .scaledToFill()
                     .backgroundStyle(.white)
                     .frame(maxWidth: 185,maxHeight: 230)
@@ -28,6 +29,8 @@ struct MovieDesignScrollView: View {
                         RoundedRectangle(cornerRadius: 16)
                             .stroke(.gray.opacity(0.5), lineWidth: 1)
                     }
+            
+                    //MARK: Estilização do placeholder dos filmes da ScrollMovies (oq aparece enquanto não carrega a imagem)
             } placeholder: {
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(.gray.opacity(0.5), lineWidth: 1)
@@ -40,10 +43,11 @@ struct MovieDesignScrollView: View {
                     }
             }            }
             
+            //MARK: - Título do filme
             if let title = movie.title {
                 Text(title)
             } else {
-                Text("Title error")
+                Text(" ") //Caso não haja título não aparece nada.
             }
         }
         .padding()

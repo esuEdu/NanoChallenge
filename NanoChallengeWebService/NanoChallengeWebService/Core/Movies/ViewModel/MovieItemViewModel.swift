@@ -15,25 +15,8 @@ import SwiftUI
 //    @Published var moviesRomance: responceDiscoverMovies?
 //}
 
-//Componente que exibe horizontalmente um array de Filmes, mostra o título e banner deles
-struct ScrollMovies: View {
-    let movies: [Movie]
-    
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack {
-                ForEach(movies) { movie in
-                    NavigationLink {
-                        MovieItem(movieItem: movie)
-                    } label: {
-                        MovieDesignScrollView(movie: movie)
-                    }
-                }
-            }
-        }
-    }
-}
 
+///Classe que contém todas as funções de consulta de api
 class MovieService {
     let apiKey = "51b118788f608c33046a9420adb65886"
     let baseURL = "https://api.themoviedb.org/3/movie"

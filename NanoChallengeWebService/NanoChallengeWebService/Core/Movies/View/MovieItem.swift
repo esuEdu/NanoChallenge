@@ -9,23 +9,27 @@ import SwiftUI
 
 struct MovieItem: View {
     
-    @State var movieItem: Movie?
-    @State var isFavorite: Bool? = nil
-    @State var movieServe: MovieService? = MovieService()
+    @State var movieItem: Movie? //filme
+    @State var isFavorite: Bool? = nil //Variável criada para favoritar filme
+    @State var movieServe: MovieService? = MovieService() //Classe que contém lógica de requisições de api.
     
     
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
+            
+            //MARK: - IMAGEM
             GeometryReader { reader in
                 if (movieItem?.backdropPath) != nil {
                     AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(movieItem?.backdropPath ?? "")")) { image in image
+                        
+                        //MARK: Estilização do banner (imagem) do filme
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .offset(y: -reader.frame(in: .global).minY)
                             .frame(width: UIScreen.main.bounds.width, height: reader.frame(in: .global).minY + 480)
                         
-                        
+                        //MARK: Estilização placeholder (enquanto não carrega a imagem)
                     } placeholder: {
                         ProgressView()
                         ProgressView()
@@ -43,19 +47,19 @@ struct MovieItem: View {
                     .font(.system(size: 35, weight: .bold))
                     .foregroundColor(.white)
                 
-                                    // Listar todos os generos
                 
-                HStack {
-                    if let genres = movieItem?.genres {
-                        ForEach(genres, id: \.id){
-                            genre in
-                            GenresDesign(name: genre.name ?? "")
-                        }
+            //MARK: - Todos os gêneros
+            HStack {
+                if let genres = movieItem?.genres {
+                    ForEach(genres, id: \.id){
+                        genre in
+                        GenresDesign(name: genre.name ?? "") //Esta struct define o visual de todos os gêneros
                     }
                 }
+            }
                 
                 
-                
+                //MARK: Descrição do filme
                 if movieItem?.overview == ""{
                     Text("Description not found")
                         .padding(.top)
@@ -68,6 +72,7 @@ struct MovieItem: View {
                 
                 VStack(alignment: .leading, spacing: 15){
                     
+                    //MARK: - Nota do filme (estrelas)
                     HStack {
                         if let voteAverage = movieItem?.voteAverage {
 
@@ -77,12 +82,15 @@ struct MovieItem: View {
                             
                             ForEach(0..<5) { index in
                                 if index < fullStars {
+                                    //Estrelas preenchidas
                                     Image(systemName: "star.fill")
                                         .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
                                 } else if index == fullStars && hasHalfStar {
+                                    //Estrelas semi-preenchidas
                                     Image(systemName: "star.leadinghalf.fill")
                                         .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
                                 } else {
+                                    //Estrelas vazias
                                     Image(systemName: "star")
                                         .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
                                 }
@@ -90,14 +98,15 @@ struct MovieItem: View {
                         
                         }
                         Spacer()
-//                         Botaão de favoritos
+                        
+                        //MARK: - Botão de favoritos
                         Button {
                             if isFavorite == nil {
                                 isFavorite = false
                             }
 
                             isFavorite?.toggle()
-                        } label: {
+                        } label: {                 //MARK: Estilização do button
                             Image(systemName: isFavorite ?? false ? "heart.fill" : "heart")
                                 .resizable()
                                 .scaledToFit()
@@ -146,14 +155,4 @@ struct MovieItem: View {
 //    }
 //}
 
-struct GenresDesign: View {
-    
-    var name: String
-    
-    var body: some View {
-        Button(action: {}) {
-            Text(name)
-        }
-//        .border(Color.blue, width: 2)
-    }
-}
+

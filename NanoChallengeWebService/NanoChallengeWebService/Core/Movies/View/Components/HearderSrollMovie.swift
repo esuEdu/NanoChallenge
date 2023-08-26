@@ -10,15 +10,15 @@ import SwiftUI
 ///É o header das ScrollMovies, recebe como pariametro o nome da ScrollView, normalmente o gênero da Lista de filmes.
 struct HearderSrollMovie: View {
     
-    var title: String
+    var title: String //Titulo da lista de filmes
     
     var body: some View {
         HStack {
-            Text(title)
+            Text(title) //Título da lista de filmes
                 .font(.title)
                 .padding(.horizontal)
             Spacer()
-            Button {
+            Button { //Botão ao lado do título (Tem função meramente visual)
                 
             } label: {
                 Text("View All")
