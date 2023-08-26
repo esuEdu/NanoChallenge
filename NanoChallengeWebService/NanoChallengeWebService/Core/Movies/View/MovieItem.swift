@@ -12,6 +12,8 @@ struct MovieItem: View {
     @State var idMovie: Int
     @State var movieItem: Movie?
     @State var banner: String?
+    @State var isFavorite: Bool? = nil
+    
     @State var movieServe: MovieService? = MovieService()
     
     
@@ -58,11 +60,11 @@ struct MovieItem: View {
                 if movieItem?.overview == ""{
                     Text("Description not found")
                         .padding(.top)
-                        .foregroundColor(Color.red)
+                        .foregroundColor(Color.white)
                 } else {
                     Text(movieItem?.overview ?? "Sem overview")
                         .padding(.top)
-                        .foregroundColor(Color.red)
+                        .foregroundColor(Color.white)
                 }
                 
                 VStack(alignment: .leading, spacing: 15){
@@ -72,21 +74,28 @@ struct MovieItem: View {
                     //                                // Listar as estrelas
                     HStack {
                         if let voteAverage = movieItem?.voteAverage {
-                            Text("\(voteAverage)")
-                                  .foregroundColor(.yellow)
-                        }
-
-                        if let voteAverage = movieItem?.voteAverage {
 //                            Text("\(voteAverage)")
 //                                .foregroundColor(.yellow)
+//
+                            let average = voteAverage / 2
+                            let fullStars = Int(average)
+                            let hasHalfStar = (average - Double(fullStars)) >= 0.5
                             
-                            ForEach(0..<Int(voteAverage) / 2) { index in
-                                
-                                
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(.white)
+                            ForEach(0..<5) { index in
+                                if index < fullStars {
+                                    Image(systemName: "star.fill")
+                                        .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
+                                } else if index == fullStars && hasHalfStar {
+                                    Image(systemName: "star.leadinghalf.fill")
+                                        .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
+                                } else {
+                                    Image(systemName: "star")
+                                        .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
+                                }
                             }
-                            
+                        
+                    
+
                             
 
 //                            ForEach(0..<Int(voteAverage), id: \.self){
@@ -123,16 +132,23 @@ struct MovieItem: View {
 //                                }
 //                            }
                         }
-//                        Spacer()
-                        // Botaão de favoritos
-//                        Button {
-//
-//                        } label: {
-//                            Image("corazon")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 26, height: 26)
-//                        }
+                        Spacer()
+//                         Botaão de favoritos
+                        Button {
+                            if isFavorite == nil {
+                                isFavorite = false
+                            }
+
+                            isFavorite?.toggle()
+                        } label: {
+//                            Image(systemName: "heart.fill") // Coração preenchido
+                            Image(systemName: isFavorite ?? false ? "heart.fill" : "heart")      // Coração vazio
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 26, height: 26)
+                                .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
+
+                        }
                         
                     }
                 }

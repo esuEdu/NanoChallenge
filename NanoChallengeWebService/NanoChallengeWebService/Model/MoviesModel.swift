@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Movie: Codable, Identifiable {
+    var isFavorite: Bool? = false
     let adult: Bool
     let backdropPath: String?
     let genres: [Genre]?
@@ -27,6 +28,7 @@ struct Movie: Codable, Identifiable {
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
+
 }
 
 struct Collection: Codable {
