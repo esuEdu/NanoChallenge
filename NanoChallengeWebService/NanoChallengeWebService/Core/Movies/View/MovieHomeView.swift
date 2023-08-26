@@ -59,3 +59,4 @@ struct MovieHomeView_Previews: PreviewProvider {
         MovieHomeView()
     }
 }
+

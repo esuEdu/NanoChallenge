@@ -86,5 +86,28 @@ class MovieService {
         }
     }
     
+    ///Faz uma pesquisa de filmes com base em palavras fornecidas pelo usuário
+    func getMoviesByWorld(search: String) async throws -> responceDiscoverMovies {
 
+        let endpoint = "https://api.themoviedb.org/3/search/movie?api_key=\(apiKey)&query=\(search)"
+
+        guard let url = URL(string: endpoint) else { throw GHError.invalidURL }
+
+        let (data, response) = try await URLSession.shared.data(from: url)
+
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            let response = response as? HTTPURLResponse
+            print(response?.statusCode)
+            throw GHError.invalidResponse
+        }
+
+        do {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+            return try decoder.decode(responceDiscoverMovies.self, from: data)
+        } catch {
+            throw GHError.invalidData
+        }
+    }
 }
