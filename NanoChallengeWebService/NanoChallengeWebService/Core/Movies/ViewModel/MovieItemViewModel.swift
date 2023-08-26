@@ -60,30 +60,30 @@ class MovieService {
         }
     }
     
-//    func getDiscoverMovies(id: Int) async throws -> responceDiscoverMovies {
-//
-//        let idString = String(id)
-//
-//        let endpoint = "https://api.themoviedb.org/3/movie/\(idString)/images?api_key=51b118788f608c33046a9420adb65886"
-//
-//        guard let url = URL(string: endpoint) else { throw GHError.invalidURL }
-//
-//        let (data, response) = try await URLSession.shared.data(from: url)
-//
-//        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-//            let response = response as? HTTPURLResponse
-//            print(response?.statusCode)
-//            throw GHError.invalidResponse
-//        }
-//
-//        do {
-//            let decoder = JSONDecoder()
-//
-//            return try decoder.decode(responceDiscoverMovies.self, from: data)
-//        } catch {
-//            throw GHError.invalidData
-//        }
-//    }
+    ///Retorna filmes de um gênero específico, tem como parâmetro o id do gênero
+    func getDiscoverMoviesGenre(idGenre: Int) async throws -> responceDiscoverMovies {
+
+
+        let endpoint = "https://api.themoviedb.org/3/discover/movie?api_key=\(apiKey)&with_genres=\(idGenre)"
+
+        guard let url = URL(string: endpoint) else { throw GHError.invalidURL }
+
+        let (data, response) = try await URLSession.shared.data(from: url)
+
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            let response = response as? HTTPURLResponse
+            print(response?.statusCode)
+            throw GHError.invalidResponse
+        }
+
+        do {
+            let decoder = JSONDecoder()
+
+            return try decoder.decode(responceDiscoverMovies.self, from: data)
+        } catch {
+            throw GHError.invalidData
+        }
+    }
     
 
 }
