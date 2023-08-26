@@ -10,9 +10,11 @@ import SwiftUI
 struct MovieItem: View {
     
     @State var idMovie: Int
-    @State private var movieItem: Movie?
-    @State private var banner: String?
-    @State private var movieServe: MovieService? = MovieService()
+    @State var movieItem: Movie?
+    @State var banner: String?
+    @State var movieServe: MovieService? = MovieService()
+    
+    
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -42,14 +44,14 @@ struct MovieItem: View {
                     .font(.system(size: 35, weight: .bold))
                     .foregroundColor(.white)
                 
-                //                    // Listar todos os generos
-                //                    HStack {
-                //                        ForEach((movieItem?.genres)!, id: \.id){
-                //                            genre in
-                //                            GenresDesign(name: genre.name ?? "")
-                //                        }
-                //                    }
-                // verifica se exisgte descricao no retorno da API
+                                    // Listar todos os generos
+//                                    HStack {
+//                                        ForEach((movieItem?.genres)!, id: \.id){
+//                                            genre in
+//                                            GenresDesign(name: genre.name ?? "")
+//                                        }
+//                                    }
+//                 verifica se exisgte descricao no retorno da API
                 
                 
                 
@@ -62,6 +64,79 @@ struct MovieItem: View {
                         .padding(.top)
                         .foregroundColor(Color.red)
                 }
+                
+                VStack(alignment: .leading, spacing: 15){
+                    //                                Text(series.name)
+                    //                                    .font(.system(size: 35, weight: .bold))
+                    //                                    .foregroundColor(.white)
+                    //                                // Listar as estrelas
+                    HStack {
+                        if let voteAverage = movieItem?.voteAverage {
+                            Text("\(voteAverage)")
+                                  .foregroundColor(.yellow)
+                        }
+
+                        if let voteAverage = movieItem?.voteAverage {
+//                            Text("\(voteAverage)")
+//                                .foregroundColor(.yellow)
+                            
+                            ForEach(0..<Int(voteAverage) / 2) { index in
+                                
+                                
+                                Image(systemName: "star.fill")
+                                    .foregroundColor(.white)
+                            }
+                            
+                            
+
+//                            ForEach(0..<Int(voteAverage), id: \.self){
+//                                image in
+//                                Image("fillStar")
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width: 26, height: 26)
+//                            }
+//                            // Verificar se é maior que 0.50 para por a estrela meia bomba
+//                            if (voteAverage - Double(Int(voteAverage))) >= 0.5 {
+//                                Image("semiFillStar")
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width: 26, height: 26)
+//                            }
+//                            // Colocar o resto das estrelas - verifica se ja existe uma entrela meia boma
+//                            if (voteAverage - Double(Int(voteAverage))) >= 0.5 {
+//                                ForEach(0...(3 - Int(voteAverage)), id: \.self) {
+//                                    image in
+//                                    Image("notFillStar")
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                        .frame(width: 26, height: 26)
+//                                }
+//                                // caso nao tenha ele bota todas normal, caso tenha ele bota uma a menos
+//                            } else {
+//                                ForEach(0...(4 - Int(voteAverage)), id: \.self) {
+//                                    image in
+//                                    Image("notFillStar")
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                        .frame(width: 26, height: 26)
+//                                }
+//                            }
+                        }
+//                        Spacer()
+                        // Botaão de favoritos
+//                        Button {
+//
+//                        } label: {
+//                            Image("corazon")
+//                                .resizable()
+//                                .scaledToFit()
+//                                .frame(width: 26, height: 26)
+//                        }
+                        
+                    }
+                }
+
                 
                 
                 
@@ -88,59 +163,14 @@ struct MovieItem: View {
             } catch {
                 print("Unexpected Error")
             }
-            
-            
-            //            VStack {
-            //                if let movieItem = movieItem {
-            //                    //Id do filme
-            //                    Text("\(movieItem.id)")
-            //
-            //                    //String da url do banner do filme
-            //                    Text(movieItem.backdropPath ?? "sem banner")
-            //
-            //                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(movieItem.backdropPath ?? "")")) { image in
-            //                        image.resizable()
-            //                            .aspectRatio(contentMode: .fit)
-            //                    } placeholder: {
-            //                        // Placeholder view enquanto a imagem está sendo carregada
-            //                        Color.gray
-            //                    }
-            //
-            //                    //Adulto ou não
-            //                    Text(String(movieItem.adult))
-            //
-            //
-            //                    //Título do filme
-            //                    Text(movieItem.title ?? "NDA")
-            //
-            //                    //Gêneros do filme
-            //                    ForEach(movieItem.genres! , id: \.id) { genre in
-            //                        Text(genre.name ?? "N genre")
-            //                    }
-            //
-            //                    //Homepage do filme
-            //                    Text(movieItem.homepage ?? "sem homepage")
-            //
-            //                    //Overview do filme
-            //                    Text(movieItem.overview ?? "sem overview")
-            //
-            //                }
-            //            }
-            //            .padding()
-            
-            
         }
-        
-        //              func getImage() async throws {
-        //                  let endpoint = "https://image.tmdb.org/t/p/original\(banner)"
-        //              }
     }
 }
         
 
 struct MovieItem_Previews: PreviewProvider {
     static var previews: some View {
-        MovieItem(idMovie: 157336)
+        MovieItem(idMovie: 298618)
     }
 }
 

@@ -14,6 +14,8 @@ struct MovieHomeView: View {
     @State var responseMovieDiscover: responceDiscoverMovies?
     @State var moviesAdventure: responceDiscoverMovies?
     @State var moviesRomance: responceDiscoverMovies?
+
+//    @StateObject var viewModel:MovieHomeViewModel = MovieHomeViewModel()
     
     var body: some View {
         VStack {
@@ -23,26 +25,26 @@ struct MovieHomeView: View {
 
                     //MARK: Filmes recentes
                     HearderSrollMovie(title: "Movies")
-                    ScrollMovies(movies: responseMovieDiscover?.results ?? [])
+                    ScrollMovies(movies:  responseMovieDiscover?.results ?? [])
                 
                     //MARK: Filmes de ação
                     HearderSrollMovie(title: GenreMovie.adventure.name)
-                    ScrollMovies(movies: moviesAdventure?.results ?? [])
+                    ScrollMovies(movies:  moviesAdventure?.results ?? [])
                     
                     //MARK: Filmes de romance
                     HearderSrollMovie(title: GenreMovie.romance.name)
-                    ScrollMovies(movies: moviesRomance?.results ?? [])
+                    ScrollMovies(movies:  moviesRomance?.results ?? [])
                     
                     
                 }
                 .navigationTitle("Movies")
                 .task { //Chamando API
                     do {
-                        responseMovieDiscover = try await movieService.getDiscoverMovies()
+                         responseMovieDiscover = try await  movieService.getDiscoverMovies()
 
-                        moviesAdventure = try await movieService.getDiscoverMoviesGenre(idGenre: GenreMovie.adventure.rawValue)
+                         moviesAdventure = try await  movieService.getDiscoverMoviesGenre(idGenre: GenreMovie.adventure.rawValue)
                         
-                        moviesRomance = try await movieService.getDiscoverMoviesGenre(idGenre: GenreMovie.romance.rawValue)
+                         moviesRomance = try await  movieService.getDiscoverMoviesGenre(idGenre: GenreMovie.romance.rawValue)
 
                     } catch {
                         print("Error: \(error)")

@@ -25,7 +25,7 @@ struct Movie: Codable, Identifiable {
     let status: String? // em produção, concluído, cancelado...
     let title: String?
     let video: Bool?
-    let voteAverage: Float?
+    let voteAverage: Double?
     let voteCount: Int?
 }
 

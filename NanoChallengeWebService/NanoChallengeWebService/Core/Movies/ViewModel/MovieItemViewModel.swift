@@ -6,6 +6,16 @@
 //
 
 import Foundation
+import SwiftUI
+//
+//class MovieHomeViewModel: ObservableObject {
+//    @Published var movieService: MovieService = MovieService()
+//    @Published var responseMovieDiscover: responceDiscoverMovies?
+//    @Published var moviesAdventure: responceDiscoverMovies?
+//    @Published var moviesRomance: responceDiscoverMovies?
+//    
+//
+//}
 
 class MovieService {
     let apiKey = "51b118788f608c33046a9420adb65886"
