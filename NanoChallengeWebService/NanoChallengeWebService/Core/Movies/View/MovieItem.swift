@@ -21,7 +21,7 @@ struct MovieItem: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             GeometryReader { reader in
-                if let backDropPath = movieItem?.backdropPath {
+                if (movieItem?.backdropPath) != nil {
                     AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(movieItem?.backdropPath ?? "")")) { image in image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -94,43 +94,6 @@ struct MovieItem: View {
                                 }
                             }
                         
-                    
-
-                            
-
-//                            ForEach(0..<Int(voteAverage), id: \.self){
-//                                image in
-//                                Image("fillStar")
-//                                    .resizable()
-//                                    .scaledToFit()
-//                                    .frame(width: 26, height: 26)
-//                            }
-//                            // Verificar se é maior que 0.50 para por a estrela meia bomba
-//                            if (voteAverage - Double(Int(voteAverage))) >= 0.5 {
-//                                Image("semiFillStar")
-//                                    .resizable()
-//                                    .scaledToFit()
-//                                    .frame(width: 26, height: 26)
-//                            }
-//                            // Colocar o resto das estrelas - verifica se ja existe uma entrela meia boma
-//                            if (voteAverage - Double(Int(voteAverage))) >= 0.5 {
-//                                ForEach(0...(3 - Int(voteAverage)), id: \.self) {
-//                                    image in
-//                                    Image("notFillStar")
-//                                        .resizable()
-//                                        .scaledToFit()
-//                                        .frame(width: 26, height: 26)
-//                                }
-//                                // caso nao tenha ele bota todas normal, caso tenha ele bota uma a menos
-//                            } else {
-//                                ForEach(0...(4 - Int(voteAverage)), id: \.self) {
-//                                    image in
-//                                    Image("notFillStar")
-//                                        .resizable()
-//                                        .scaledToFit()
-//                                        .frame(width: 26, height: 26)
-//                                }
-//                            }
                         }
                         Spacer()
 //                         Botaão de favoritos
@@ -141,8 +104,7 @@ struct MovieItem: View {
 
                             isFavorite?.toggle()
                         } label: {
-//                            Image(systemName: "heart.fill") // Coração preenchido
-                            Image(systemName: isFavorite ?? false ? "heart.fill" : "heart")      // Coração vazio
+                            Image(systemName: isFavorite ?? false ? "heart.fill" : "heart")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 26, height: 26)

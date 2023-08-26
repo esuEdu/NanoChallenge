@@ -34,7 +34,7 @@ class MovieService {
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             let response = response as? HTTPURLResponse
-            print(response?.statusCode)
+//            print(response?.statusCode)
             throw GHError.invalidResponse
         }
         
@@ -57,7 +57,7 @@ class MovieService {
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             let response = response as? HTTPURLResponse
-            print(response?.statusCode)
+//            print(response?.statusCode)
             throw GHError.invalidResponse
         }
         
@@ -82,7 +82,7 @@ class MovieService {
 
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             let response = response as? HTTPURLResponse
-            print(response?.statusCode)
+//            print(response?.statusCode)
             throw GHError.invalidResponse
         }
 
@@ -107,7 +107,7 @@ class MovieService {
 
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             let response = response as? HTTPURLResponse
-            print(response?.statusCode)
+//            print(response?.statusCode)
             throw GHError.invalidResponse
         }
 
