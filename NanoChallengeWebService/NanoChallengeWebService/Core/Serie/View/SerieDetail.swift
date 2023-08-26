@@ -101,18 +101,18 @@ struct TVSerieDetail: View {
                 // verifica se exisgte descricao no retorno da API
                 if seriesDetailVM.overview == ""{
                     Text("Description not found")
-                        .padding(.top)
+                        
                         .foregroundColor(Color("TextColor"))
                 } else {
                     Text(seriesDetailVM.overview)
-                        .padding(.top)
+                        
                         .foregroundColor(Color("TextColor"))
                 }
                 
                 Text("Temporadas - \(seriesDetailVM.number_of_episodes)")
                     .font(.system(size: 24, weight: .bold))
                     .foregroundColor(.white)
-                
+                //puxar todos os eps
                 ForEach(seriesDetailVM.allEpisodes, id: \.self) {
                     episode in
                     Text("\(episode.name)")
@@ -131,7 +131,7 @@ struct TVSerieDetail: View {
             .offset(y: -35)
         }
         .edgesIgnoringSafeArea(.all)
-        .background(.black)
+        .background(Color("BackGroundColor"))
         .task {
       //      seriesDetailVM.urlString = series._links.selfLink.href
             do {

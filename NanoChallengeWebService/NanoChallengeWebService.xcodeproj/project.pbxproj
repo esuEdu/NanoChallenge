@@ -22,6 +22,7 @@
 		BA8D8BD22A992A3700CE5BE6 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD12A992A3700CE5BE6 /* Series.swift */; };
 		BA8D8BD52A992AA900CE5BE6 /* MainSerieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD42A992AA900CE5BE6 /* MainSerieView.swift */; };
 		BA8D8BD72A992ACD00CE5BE6 /* SerieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD62A992ACD00CE5BE6 /* SerieDetail.swift */; };
+		BA8D8BD92A9A495800CE5BE6 /* ListGenreSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD82A9A495800CE5BE6 /* ListGenreSerie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		BA8D8BD12A992A3700CE5BE6 /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		BA8D8BD42A992AA900CE5BE6 /* MainSerieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSerieView.swift; sourceTree = "<group>"; };
 		BA8D8BD62A992ACD00CE5BE6 /* SerieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieDetail.swift; sourceTree = "<group>"; };
+		BA8D8BD82A9A495800CE5BE6 /* ListGenreSerie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGenreSerie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				BA8D8BC62A9928F200CE5BE6 /* SerieCard.swift */,
 				BA8D8BC82A99291100CE5BE6 /* GenreDesign.swift */,
 				BA8D8BCA2A99297500CE5BE6 /* ScrollCardView.swift */,
+				BA8D8BD82A9A495800CE5BE6 /* ListGenreSerie.swift */,
 			);
 			path = ComponetnsSeries;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				2863AB292A8EA0DC007F72AB /* AnimeItemView.swift in Sources */,
 				BA8D8BD22A992A3700CE5BE6 /* Series.swift in Sources */,
 				BA8D8BD02A9929F900CE5BE6 /* SerieDetailViewModel.swift in Sources */,
+				BA8D8BD92A9A495800CE5BE6 /* ListGenreSerie.swift in Sources */,
 				2863AB272A8E9B31007F72AB /* AnimeHomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

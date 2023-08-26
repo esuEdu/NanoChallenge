@@ -74,22 +74,16 @@ class SeriesViewModel: ObservableObject {
         let decoder = JSONDecoder()
         let response = try decoder.decode(TVSeriesResponse.self, from: data)
         
-//        let baseURL = "https://image.tmdb.org/t/p/original" // Escolha o tamanho desejado
-//         for var tvSeries in response.results {
-//             if let backdropPath = tvSeries.backdropPath {
-//                 tvSeries.imageURL = URL(string: baseURL + backdropPath)
-//             }
-//         }
         if currentPage == 1 {
             self.popularSeries = response.results
         }
          return response
     }
     
-    func fetchAllTVSeries() async {
+    func fetchAllTVSeries(limit: Int) async {
         var allSeries: [TVSeries] = []
         
-        while currentPage <= totalPages {
+        while currentPage <= totalPages && allSeries.count <= limit {
             do {
                 let response = try await getTVSeries(page: currentPage)
                 allSeries.append(contentsOf: response.results)
@@ -108,9 +102,7 @@ class SeriesViewModel: ObservableObject {
             }
         }
     }
-    
-    
-    
+        
     func getImages(seriesId: Int) async throws -> SeriesImagesResponse {
         let urlString = "https://api.themoviedb.org/3/tv/\(seriesId)/images?api_key=\(apiKey)"
         

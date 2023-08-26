@@ -17,7 +17,6 @@ struct ScrollCardsView: View {
                 ForEach(0 ..< arraySeries.count, id: \.self){ index in
                     NavigationLink {
                         TVSerieDetail(series: arraySeries[index])
-                        
                     } label: {
                         VStack {
                             // if let para pegar o complemento da imagem do link

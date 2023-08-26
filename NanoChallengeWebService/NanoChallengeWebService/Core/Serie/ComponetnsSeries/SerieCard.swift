@@ -42,7 +42,7 @@ struct SerieCard: View {
             }
             Text(name)
                 .font(.title2)
-                .foregroundColor(.black)
+                .foregroundColor(.white)
         } // MARK: Primeira VSTACK
         .padding()
     }
