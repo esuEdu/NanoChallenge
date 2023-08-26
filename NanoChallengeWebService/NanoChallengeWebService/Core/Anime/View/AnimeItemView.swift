@@ -9,30 +9,17 @@ import SwiftUI
 
 struct AnimeItemView: View {
     
-    
+    let anime: AnimeModel
     
     var body: some View {
         VStack(alignment: .leading){
-            RoundedRectangle(cornerRadius: 8)
-                .frame(maxWidth: 165, minHeight: 220, maxHeight: 200)
-            Spacer()
-            Text("")
-                .padding(.leading, 5)
-            Spacer()
+            AnimeImageView(anime: anime)
+                .frame(width: 120, height: 180)
+            Text((anime.title.english ?? anime.title.romaji ?? anime.title.native) ?? "No name")
+                .foregroundColor(.black)
+                .lineLimit(2)
+                .frame(maxWidth: 120)
         }
-        .frame(maxWidth: 165, maxHeight: 280)
-    }
-}
-
-struct AnimeItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group{
-            
-            AnimeItemView()
-                .previewLayout(.sizeThatFits)
-            
-            AnimeItemView()
-        }
-
+        .frame(maxWidth: 120, maxHeight: 200)
     }
 }

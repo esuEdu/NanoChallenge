@@ -13,6 +13,9 @@ struct NanoChallengeWebServiceApp: App {
         WindowGroup {
             NavigationStack{
                 ContentView()
+                    .navigationDestination(for: AnimeModel.self ) { anime in
+                        AnimeView(anime: anime)
+                    }
             }
         }
     }
