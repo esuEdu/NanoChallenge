@@ -75,6 +75,7 @@ class SeriesDetailViewlModel: ObservableObject{
         self.overview = response.overview
         self.genresTV = response.genres
         self.number_of_seasons = response.number_of_seasons
+        self.number_of_episodes = response.number_of_episodes
         self.vote_average = response.vote_average / 2
     }
     
@@ -95,13 +96,7 @@ class SeriesDetailViewlModel: ObservableObject{
     
     func fetchAllEpisode(idSerie: Int, season: Int) async throws{
         var allEpisodes: [Episode] = []
-        
-        let urlString = "https://api.themoviedb.org/3/tv/\(idSerie)/season/\(season)/episode/\(currentEpisode)?api_key=\(apiKey)"
         while true {
-            guard let url = URL(string: urlString) else {
-                throw NSError(domain: "Invalid URL", code: 0)
-            }
-            
             do {
                 let response = try await fetchEpisode(idSerie: idSerie, season: season)
                 allEpisodes.append(response)

@@ -15,36 +15,32 @@ struct SerieCard: View {
     var body: some View {
         
         VStack {
-            AsyncImage(url: URL(string: url)) {
-                image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .backgroundStyle(.white)
-                    .frame(maxWidth: 185,maxHeight: 230)
-                    .cornerRadius(16)
-                    .shadow(radius: 8, x: 5, y: 5)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 16)
-                            .stroke(.gray.opacity(0.5), lineWidth: 1)
-                    }
-
-            } placeholder: {
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(.gray.opacity(0.5), lineWidth: 1)
-                    .frame(width: 160, height: 230)
-                    .overlay {
-                        ProgressView()
-                            .scaleEffect(4)
-                            .frame(maxHeight: 96)
-                            .padding()
-                    }
-            }
+            VStack {
+                AsyncImage(url: URL(string: url)) {
+                    image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+        
+                } placeholder: {
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(.gray.opacity(0.5), lineWidth: 1)
+                        .overlay {
+                            ProgressView()
+                                .scaleEffect(4)
+                                .frame(maxHeight: 96)
+                                .padding()
+                        }
+                }
+            }.frame(width: 185, height: 250, alignment: .top)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .shadow(radius: 8, x: 5, y: 5)
             Text(name)
-                .font(.title2)
+                .font(.custom("Poppins", size: 22))
                 .foregroundColor(.white)
+                
         } // MARK: Primeira VSTACK
-        .padding()
+
     }
 }
 

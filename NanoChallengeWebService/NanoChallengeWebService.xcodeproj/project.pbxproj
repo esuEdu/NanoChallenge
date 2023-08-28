@@ -23,6 +23,8 @@
 		BA8D8BD52A992AA900CE5BE6 /* MainSerieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD42A992AA900CE5BE6 /* MainSerieView.swift */; };
 		BA8D8BD72A992ACD00CE5BE6 /* SerieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD62A992ACD00CE5BE6 /* SerieDetail.swift */; };
 		BA8D8BD92A9A495800CE5BE6 /* ListGenreSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD82A9A495800CE5BE6 /* ListGenreSerie.swift */; };
+		BA8D8BDB2A9D0F5100CE5BE6 /* AllSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BDA2A9D0F5100CE5BE6 /* AllSeries.swift */; };
+		BA8D8BDD2A9D16E300CE5BE6 /* AllGenreSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BDC2A9D16E300CE5BE6 /* AllGenreSerie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		BA8D8BD42A992AA900CE5BE6 /* MainSerieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSerieView.swift; sourceTree = "<group>"; };
 		BA8D8BD62A992ACD00CE5BE6 /* SerieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieDetail.swift; sourceTree = "<group>"; };
 		BA8D8BD82A9A495800CE5BE6 /* ListGenreSerie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGenreSerie.swift; sourceTree = "<group>"; };
+		BA8D8BDA2A9D0F5100CE5BE6 /* AllSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSeries.swift; sourceTree = "<group>"; };
+		BA8D8BDC2A9D16E300CE5BE6 /* AllGenreSerie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGenreSerie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,8 @@
 			children = (
 				BA8D8BD42A992AA900CE5BE6 /* MainSerieView.swift */,
 				BA8D8BD62A992ACD00CE5BE6 /* SerieDetail.swift */,
+				BA8D8BDA2A9D0F5100CE5BE6 /* AllSeries.swift */,
+				BA8D8BDC2A9D16E300CE5BE6 /* AllGenreSerie.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA8D8BDD2A9D16E300CE5BE6 /* AllGenreSerie.swift in Sources */,
 				2863AB172A8E986F007F72AB /* ContentView.swift in Sources */,
 				BA8D8BC92A99291100CE5BE6 /* GenreDesign.swift in Sources */,
 				2863AB2C2A8EA428007F72AB /* AnimeModel.swift in Sources */,
@@ -258,6 +265,7 @@
 				BA8D8BD22A992A3700CE5BE6 /* Series.swift in Sources */,
 				BA8D8BD02A9929F900CE5BE6 /* SerieDetailViewModel.swift in Sources */,
 				BA8D8BD92A9A495800CE5BE6 /* ListGenreSerie.swift in Sources */,
+				BA8D8BDB2A9D0F5100CE5BE6 /* AllSeries.swift in Sources */,
 				2863AB272A8E9B31007F72AB /* AnimeHomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,7 +395,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NanoChallengeWebService/Preview Content\"";
-				DEVELOPMENT_TEAM = SVGXRR5RRA;
+				DEVELOPMENT_TEAM = 3A253HAV36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -416,7 +424,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NanoChallengeWebService/Preview Content\"";
-				DEVELOPMENT_TEAM = SVGXRR5RRA;
+				DEVELOPMENT_TEAM = 3A253HAV36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

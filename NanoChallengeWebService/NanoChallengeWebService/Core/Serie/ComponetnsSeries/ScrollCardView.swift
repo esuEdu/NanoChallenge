@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// CRIA OS SCROLL DE ACORDO COM OS PARAMETROS CHAMADOS
 struct ScrollCardsView: View {
     var arraySeries: [TVSeries]
 

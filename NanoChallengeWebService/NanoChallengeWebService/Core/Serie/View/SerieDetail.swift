@@ -109,7 +109,12 @@ struct TVSerieDetail: View {
                         .foregroundColor(Color("TextColor"))
                 }
                 
-                Text("Temporadas - \(seriesDetailVM.number_of_episodes)")
+                //Número de Temporadas
+                Text("Temporadas - \(seriesDetailVM.number_of_seasons)")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundColor(.white)
+                //Número de episódios
+                Text("Episódios - \(seriesDetailVM.number_of_episodes)")
                     .font(.system(size: 24, weight: .bold))
                     .foregroundColor(.white)
                 //puxar todos os eps

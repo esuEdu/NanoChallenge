@@ -20,7 +20,7 @@ struct ListGenreSerie: View {
                     .foregroundColor(.white)
                 Spacer()
                 NavigationLink {
-                    
+                    AllGenreSerie(genreID: genreID, genreName: genreName, serieArray: serieArray)
                 } label: {
                     Text("Ver todas")
                         .font(.title2)
