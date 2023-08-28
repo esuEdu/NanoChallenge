@@ -12,6 +12,7 @@ struct MovieItem: View {
     @State var movieItem: Movie? //filme
     @State var isFavorite: Bool? = nil //Variável criada para favoritar filme
     @State var movieServe: MovieService? = MovieService() //Classe que contém lógica de requisições de api.
+    @State var castResponce: CastResponse?
     
     
     
@@ -57,6 +58,7 @@ struct MovieItem: View {
                     }
                 }
             }
+                
                 
                 
                 //MARK: Descrição do filme
@@ -115,6 +117,49 @@ struct MovieItem: View {
 
                         }
                         
+                       
+
+
+
+                    }
+                    
+                    //MARK: - Atores:
+                    Text("Atores")
+                        .font(.title)
+                        .foregroundColor(.white)
+                    HStack {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHStack {
+                                if let casts = castResponce?.cast {
+                                    ForEach(casts) { cast in
+                                        VStack {
+                                            if let profilePath = cast.profilePath {
+                                                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(profilePath)")) { phase in
+                                                    if let image = phase.image {
+                                                        image
+                                                            .resizable()
+                                                            .aspectRatio(contentMode: .fill)
+                                                            .frame(width: 96, height: 144)
+                                                            .cornerRadius(10)
+                                                    } else if phase.error != nil {
+                                                        Color.red // Mostrar algo em caso de erro
+                                                    } else {
+                                                        ProgressView() // Mostrar um indicador de progresso enquanto a imagem é carregada
+                                                    }
+                                                }
+                                                .frame(width: 96, height: 144)
+                                                .background(Color.white)
+                                                .clipShape(Rectangle())
+                                            }
+
+                                            Text(cast.name ?? "") // Certifique-se de lidar com valores possivelmente nulos
+                                                .foregroundColor(.white)
+                                        }
+                                        .frame(width: 96)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -134,6 +179,8 @@ struct MovieItem: View {
         .task {
             do {
                 movieItem = try await movieServe?.getMovie(id: movieItem!.id)
+                castResponce = try await movieServe?.getCastMenber(idMovie: movieItem!.id)
+
                 
             } catch GHError.invalidURL {
                 print("Invalid URL")
@@ -151,8 +198,8 @@ struct MovieItem: View {
 
 //struct MovieItem_Previews: PreviewProvider {
 //    static var previews: some View {
-//        MovieItem(idMovie: 298618)
+//        MovieItem(movieItem:)
 //    }
 //}
-
+//
 

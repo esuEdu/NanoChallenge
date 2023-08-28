@@ -120,4 +120,31 @@ class MovieService {
             throw GHError.invalidData
         }
     }
+    
+    //Retorna um membro do
+    func getCastMenber(idMovie: Int) async throws -> CastResponse {
+        
+        let endpoint = "https://api.themoviedb.org/3/movie/\(idMovie)/credits?api_key=\(apiKey)"
+
+        guard let url = URL(string: endpoint) else { throw GHError.invalidURL }
+
+        let (data, response) = try await URLSession.shared.data(from: url)
+
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            let response = response as? HTTPURLResponse
+//            print(response?.statusCode)
+            throw GHError.invalidResponse
+        }
+
+        do {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+            return try decoder.decode(CastResponse.self, from: data)
+        } catch {
+            throw GHError.invalidData
+        }
+    }
+        
+    
 }
