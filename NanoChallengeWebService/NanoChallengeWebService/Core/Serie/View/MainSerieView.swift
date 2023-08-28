@@ -2,12 +2,13 @@ import SwiftUI
 
 struct MainSerieView: View {
     @StateObject var seriesVM = SeriesViewModel()
+    @State var searchText: String = ""
     var body: some View {
         NavigationStack{
             GeometryReader { geo in
                 
                 VStack {
-                    ScrollView {
+                    ScrollView(showsIndicators: false) {
                         VStack {
                             HStack {
                                 Text("Populares")
@@ -31,8 +32,6 @@ struct MainSerieView: View {
                             
                             //Puxa apenas series de Action
                             ListGenreSerie(genreID: 10759, genreName: "Ação e aventura", serieArray: seriesVM.tvSeriesArray)
-                            //Puxa apenas series de Comédia
-                            ListGenreSerie(genreID: 35, genreName: "Comédia", serieArray: seriesVM.tvSeriesArray)
                             //Puxa apenas series de Drama
                             ListGenreSerie(genreID: 18, genreName: "Drama", serieArray: seriesVM.tvSeriesArray)
                             //Puxa apenas series de Minstério
@@ -47,6 +46,7 @@ struct MainSerieView: View {
                         .resizable()
                         .scaledToFill()
                         .edgesIgnoringSafeArea(.all))
+                    .searchable(text: $searchText)
                 }
             }
         }

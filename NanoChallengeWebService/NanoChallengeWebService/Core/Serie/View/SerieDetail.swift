@@ -28,7 +28,6 @@ struct TVSerieDetail: View {
                         
                     } placeholder: {
                         ProgressView()
-                        ProgressView()
                             .scaleEffect(4)
                             .frame(maxHeight: 96)
                             .foregroundColor(.white)
@@ -137,8 +136,11 @@ struct TVSerieDetail: View {
         }
         .edgesIgnoringSafeArea(.all)
         .background(Color("BackGroundColor"))
+        .navigationTitle(series.name)
+        .navigationBarTitleDisplayMode(.inline)
+        
+        
         .task {
-      //      seriesDetailVM.urlString = series._links.selfLink.href
             do {
                 try await seriesDetailVM.fetchTVSerie(id: series.id)
                 try await seriesDetailVM.fetchAllEpisode(idSerie: series.id, season: 1)

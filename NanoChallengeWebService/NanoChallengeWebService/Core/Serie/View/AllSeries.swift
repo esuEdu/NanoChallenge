@@ -48,7 +48,12 @@ struct AllSeries: View {
                 }
                
             }
-            .background(Color("BackGroundColor"))
+            .navigationTitle("Series")
+           // .navigationBarTitleDisplayMode(.inline)
+            .background(Image("RectangleDetailBG")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all))
             .task {
                 do {
                      await serieVM.fetchAllTVSeries(limit: 10000)
