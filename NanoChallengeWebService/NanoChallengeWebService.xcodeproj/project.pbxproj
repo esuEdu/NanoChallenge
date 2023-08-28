@@ -23,6 +23,10 @@
 		28C67E9A2A926C6A00334D27 /* QueryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C67E992A926C6A00334D27 /* QueryManager.swift */; };
 		28C67E9C2A929B7F00334D27 /* AnimeHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C67E9B2A929B7F00334D27 /* AnimeHomeViewModel.swift */; };
 		28C67E9E2A93856E00334D27 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C67E9D2A93856E00334D27 /* NetworkingManager.swift */; };
+		E008BAF32A9D1DBD005085E8 /* FavoriteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E008BAF12A9D1DBD005085E8 /* FavoriteDataModel.xcdatamodeld */; };
+		E008BAF52A9D1DD6005085E8 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E008BAF42A9D1DD6005085E8 /* CoreDataController.swift */; };
+		E0AD89A52A9D2266006A67F1 /* TelaDeFavoritos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD89A42A9D2266006A67F1 /* TelaDeFavoritos.swift */; };
+		E0AD89A72A9D3305006A67F1 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD89A62A9D3305006A67F1 /* FavoriteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,10 @@
 		28C67E992A926C6A00334D27 /* QueryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManager.swift; sourceTree = "<group>"; };
 		28C67E9B2A929B7F00334D27 /* AnimeHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeHomeViewModel.swift; sourceTree = "<group>"; };
 		28C67E9D2A93856E00334D27 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		E008BAF22A9D1DBD005085E8 /* FavoriteDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteDataModel.xcdatamodel; sourceTree = "<group>"; };
+		E008BAF42A9D1DD6005085E8 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		E0AD89A42A9D2266006A67F1 /* TelaDeFavoritos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaDeFavoritos.swift; sourceTree = "<group>"; };
+		E0AD89A62A9D3305006A67F1 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				2863AB142A8E986F007F72AB /* NanoChallengeWebServiceApp.swift */,
+				E008BAF02A9D1DA3005085E8 /* CoreData */,
 				28C67E982A92581E00334D27 /* Utilites */,
 				28C67E942A9256E100334D27 /* AnimeServices */,
 				2863AB2A2A8EA41B007F72AB /* Model */,
@@ -118,6 +127,7 @@
 			children = (
 				28C67E9B2A929B7F00334D27 /* AnimeHomeViewModel.swift */,
 				286A1F3B2A98E0D50012D3C8 /* AnimeViewModel.swift */,
+				E0AD89A62A9D3305006A67F1 /* FavoriteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -128,6 +138,7 @@
 				2863AB262A8E9B31007F72AB /* AnimeHomeView.swift */,
 				2863AB282A8EA0DC007F72AB /* AnimeItemView.swift */,
 				286A1F372A98CCF80012D3C8 /* AnimeView.swift */,
+				E0AD89A42A9D2266006A67F1 /* TelaDeFavoritos.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,6 +176,16 @@
 				28C67E9D2A93856E00334D27 /* NetworkingManager.swift */,
 			);
 			path = Utilites;
+			sourceTree = "<group>";
+		};
+		E008BAF02A9D1DA3005085E8 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E008BAF42A9D1DD6005085E8 /* CoreDataController.swift */,
+				E008BAF12A9D1DBD005085E8 /* FavoriteDataModel.xcdatamodeld */,
+			);
+			name = CoreData;
+			path = ../CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +258,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0AD89A72A9D3305006A67F1 /* FavoriteViewModel.swift in Sources */,
 				28C67E9A2A926C6A00334D27 /* QueryManager.swift in Sources */,
+				E0AD89A52A9D2266006A67F1 /* TelaDeFavoritos.swift in Sources */,
 				2863AB172A8E986F007F72AB /* ContentView.swift in Sources */,
 				288EB3BC2A97ED4A00C24DD7 /* AnimeImageService.swift in Sources */,
 				286A1F382A98CCF80012D3C8 /* AnimeView.swift in Sources */,
@@ -247,7 +270,9 @@
 				2863AB152A8E986F007F72AB /* NanoChallengeWebServiceApp.swift in Sources */,
 				28C67E9E2A93856E00334D27 /* NetworkingManager.swift in Sources */,
 				288EB3BF2A97F18F00C24DD7 /* AnimeImageViewModel.swift in Sources */,
+				E008BAF52A9D1DD6005085E8 /* CoreDataController.swift in Sources */,
 				2863AB292A8EA0DC007F72AB /* AnimeItemView.swift in Sources */,
+				E008BAF32A9D1DBD005085E8 /* FavoriteDataModel.xcdatamodeld in Sources */,
 				2863AB272A8E9B31007F72AB /* AnimeHomeView.swift in Sources */,
 				288EB3C12A97F32800C24DD7 /* AnimeImageView.swift in Sources */,
 				286A1F3C2A98E0D50012D3C8 /* AnimeViewModel.swift in Sources */,
@@ -451,6 +476,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E008BAF12A9D1DBD005085E8 /* FavoriteDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E008BAF22A9D1DBD005085E8 /* FavoriteDataModel.xcdatamodel */,
+			);
+			currentVersion = E008BAF22A9D1DBD005085E8 /* FavoriteDataModel.xcdatamodel */;
+			path = FavoriteDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2863AB092A8E986F007F72AB /* Project object */;
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct AnimeView: View {
     
     @StateObject private var viewModel = AnimeViewModel()
+    private var dataController = CoreDataController()
     private var anime: AnimeModel
     
     
@@ -39,6 +40,12 @@ struct AnimeView: View {
                         if let anime = viewModel.anime.first {
                             AnimeImageView(anime: anime)
                                 .frame(width: 140, height: 200)
+                        }
+                        
+                        Button{
+                            dataController.addFavorite(id: String(anime.id), type: "anime")
+                        }label: {
+                            Image(systemName: "star")
                         }
                         
                         VStack(alignment: .leading) {
