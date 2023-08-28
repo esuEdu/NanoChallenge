@@ -23,6 +23,17 @@
 		28C67E9A2A926C6A00334D27 /* QueryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C67E992A926C6A00334D27 /* QueryManager.swift */; };
 		28C67E9C2A929B7F00334D27 /* AnimeHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C67E9B2A929B7F00334D27 /* AnimeHomeViewModel.swift */; };
 		28C67E9E2A93856E00334D27 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C67E9D2A93856E00334D27 /* NetworkingManager.swift */; };
+		BA8D8BC72A9928F200CE5BE6 /* SerieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BC62A9928F200CE5BE6 /* SerieCard.swift */; };
+		BA8D8BC92A99291100CE5BE6 /* GenreDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BC82A99291100CE5BE6 /* GenreDesign.swift */; };
+		BA8D8BCB2A99297500CE5BE6 /* ScrollCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BCA2A99297500CE5BE6 /* ScrollCardView.swift */; };
+		BA8D8BCE2A9929AC00CE5BE6 /* SerieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BCD2A9929AC00CE5BE6 /* SerieViewModel.swift */; };
+		BA8D8BD02A9929F900CE5BE6 /* SerieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BCF2A9929F900CE5BE6 /* SerieDetailViewModel.swift */; };
+		BA8D8BD22A992A3700CE5BE6 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD12A992A3700CE5BE6 /* Series.swift */; };
+		BA8D8BD52A992AA900CE5BE6 /* MainSerieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD42A992AA900CE5BE6 /* MainSerieView.swift */; };
+		BA8D8BD72A992ACD00CE5BE6 /* SerieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD62A992ACD00CE5BE6 /* SerieDetail.swift */; };
+		BA8D8BD92A9A495800CE5BE6 /* ListGenreSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BD82A9A495800CE5BE6 /* ListGenreSerie.swift */; };
+		BA8D8BDB2A9D0F5100CE5BE6 /* AllSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BDA2A9D0F5100CE5BE6 /* AllSeries.swift */; };
+		BA8D8BDD2A9D16E300CE5BE6 /* AllGenreSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8BDC2A9D16E300CE5BE6 /* AllGenreSerie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +54,17 @@
 		28C67E992A926C6A00334D27 /* QueryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManager.swift; sourceTree = "<group>"; };
 		28C67E9B2A929B7F00334D27 /* AnimeHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeHomeViewModel.swift; sourceTree = "<group>"; };
 		28C67E9D2A93856E00334D27 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		BA8D8BC62A9928F200CE5BE6 /* SerieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieCard.swift; sourceTree = "<group>"; };
+		BA8D8BC82A99291100CE5BE6 /* GenreDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreDesign.swift; sourceTree = "<group>"; };
+		BA8D8BCA2A99297500CE5BE6 /* ScrollCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCardView.swift; sourceTree = "<group>"; };
+		BA8D8BCD2A9929AC00CE5BE6 /* SerieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieViewModel.swift; sourceTree = "<group>"; };
+		BA8D8BCF2A9929F900CE5BE6 /* SerieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieDetailViewModel.swift; sourceTree = "<group>"; };
+		BA8D8BD12A992A3700CE5BE6 /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
+		BA8D8BD42A992AA900CE5BE6 /* MainSerieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSerieView.swift; sourceTree = "<group>"; };
+		BA8D8BD62A992ACD00CE5BE6 /* SerieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieDetail.swift; sourceTree = "<group>"; };
+		BA8D8BD82A9A495800CE5BE6 /* ListGenreSerie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGenreSerie.swift; sourceTree = "<group>"; };
+		BA8D8BDA2A9D0F5100CE5BE6 /* AllSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSeries.swift; sourceTree = "<group>"; };
+		BA8D8BDC2A9D16E300CE5BE6 /* AllGenreSerie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGenreSerie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				288EB3BD2A97F17800C24DD7 /* Components */,
+				BA8D8BC52A9928D700CE5BE6 /* Serie */,
 				2863AB232A8E99EE007F72AB /* Anime */,
 			);
 			path = Core;
@@ -165,6 +188,48 @@
 				28C67E9D2A93856E00334D27 /* NetworkingManager.swift */,
 			);
 			path = Utilites;
+						sourceTree = "<group>";
+		};
+		BA8D8BC42A9928B600CE5BE6 /* ComponetnsSeries */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D8BC62A9928F200CE5BE6 /* SerieCard.swift */,
+				BA8D8BC82A99291100CE5BE6 /* GenreDesign.swift */,
+				BA8D8BCA2A99297500CE5BE6 /* ScrollCardView.swift */,
+				BA8D8BD82A9A495800CE5BE6 /* ListGenreSerie.swift */,
+			);
+			path = ComponetnsSeries;
+			sourceTree = "<group>";
+		};
+		BA8D8BC52A9928D700CE5BE6 /* Serie */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D8BD32A992A8300CE5BE6 /* View */,
+				BA8D8BCC2A99299500CE5BE6 /* ViewModel */,
+				BA8D8BC42A9928B600CE5BE6 /* ComponetnsSeries */,
+			);
+			path = Serie;
+			sourceTree = "<group>";
+		};
+		BA8D8BCC2A99299500CE5BE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D8BCD2A9929AC00CE5BE6 /* SerieViewModel.swift */,
+				BA8D8BCF2A9929F900CE5BE6 /* SerieDetailViewModel.swift */,
+				BA8D8BD12A992A3700CE5BE6 /* Series.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BA8D8BD32A992A8300CE5BE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D8BD42A992AA900CE5BE6 /* MainSerieView.swift */,
+				BA8D8BD62A992ACD00CE5BE6 /* SerieDetail.swift */,
+				BA8D8BDA2A9D0F5100CE5BE6 /* AllSeries.swift */,
+				BA8D8BDC2A9D16E300CE5BE6 /* AllGenreSerie.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,10 +309,21 @@
 				28C67E9C2A929B7F00334D27 /* AnimeHomeViewModel.swift in Sources */,
 				2863AB2C2A8EA428007F72AB /* AnimeModel.swift in Sources */,
 				28C67E972A92571200334D27 /* AnimeDataService.swift in Sources */,
+				BA8D8BDD2A9D16E300CE5BE6 /* AllGenreSerie.swift in Sources */,
+				BA8D8BC92A99291100CE5BE6 /* GenreDesign.swift in Sources */,
+				BA8D8BCB2A99297500CE5BE6 /* ScrollCardView.swift in Sources */,
+				BA8D8BCE2A9929AC00CE5BE6 /* SerieViewModel.swift in Sources */,
+				BA8D8BC72A9928F200CE5BE6 /* SerieCard.swift in Sources */,
+				BA8D8BD52A992AA900CE5BE6 /* MainSerieView.swift in Sources */,
+				BA8D8BD72A992ACD00CE5BE6 /* SerieDetail.swift in Sources */,
 				2863AB152A8E986F007F72AB /* NanoChallengeWebServiceApp.swift in Sources */,
 				28C67E9E2A93856E00334D27 /* NetworkingManager.swift in Sources */,
 				288EB3BF2A97F18F00C24DD7 /* AnimeImageViewModel.swift in Sources */,
 				2863AB292A8EA0DC007F72AB /* AnimeItemView.swift in Sources */,
+				BA8D8BD22A992A3700CE5BE6 /* Series.swift in Sources */,
+				BA8D8BD02A9929F900CE5BE6 /* SerieDetailViewModel.swift in Sources */,
+				BA8D8BD92A9A495800CE5BE6 /* ListGenreSerie.swift in Sources */,
+				BA8D8BDB2A9D0F5100CE5BE6 /* AllSeries.swift in Sources */,
 				2863AB272A8E9B31007F72AB /* AnimeHomeView.swift in Sources */,
 				288EB3C12A97F32800C24DD7 /* AnimeImageView.swift in Sources */,
 				286A1F3C2A98E0D50012D3C8 /* AnimeViewModel.swift in Sources */,
@@ -379,7 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NanoChallengeWebService/Preview Content\"";
-				DEVELOPMENT_TEAM = SVGXRR5RRA;
+				DEVELOPMENT_TEAM = 3A253HAV36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -408,7 +484,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NanoChallengeWebService/Preview Content\"";
-				DEVELOPMENT_TEAM = SVGXRR5RRA;
+				DEVELOPMENT_TEAM = 3A253HAV36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
