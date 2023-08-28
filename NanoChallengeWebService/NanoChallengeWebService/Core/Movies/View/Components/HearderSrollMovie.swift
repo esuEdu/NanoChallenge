@@ -27,14 +27,9 @@ struct HearderSrollMovie: View {
                     .foregroundColor(CustomColor.secondary)
             }
             .padding()
-
-           
+            
+            
         }
     }
 }
 
-//struct HearderSrollMovie_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HearderSrollMovie()
-//    }
-//}

@@ -33,9 +33,9 @@ class MovieItemVM: ObservableObject {
     @Published var movieItem: Movie
     
     @Published var isFavorite: Bool? = nil //Variável criada para favoritar filme
-
+    
     init(movieItem: Movie) {
-
+        
         self.movieItem = movieItem
         
     }

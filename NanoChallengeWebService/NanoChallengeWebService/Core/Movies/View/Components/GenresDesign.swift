@@ -7,15 +7,13 @@
 
 import SwiftUI
 
-//Define o Visual de todos os gêneros
+///Define o Visual de todos os gêneros
 struct GenresDesign: View {
-    
     var name: String
     
     var body: some View {
         Button(action: {}) {
             Text(name)
         }
-//        .border(Color.blue, width: 2)
     }
 }

@@ -9,14 +9,7 @@ import SwiftUI
 
 struct MovieItem: View {
     
-//    @State var movieItem: Movie? //filme
-//    @State var isFavorite: Bool? = nil //Variável criada para favoritar filme
-//    @State var movieServe: MovieService? = MovieService() //Classe que contém lógica de requisições de api.
-//    @State var castResponce: CastResponse?
-    
     @StateObject var mv:MovieItemVM
-    
-    
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -51,15 +44,15 @@ struct MovieItem: View {
                     .foregroundColor(.white)
                 
                 
-            //MARK: - Todos os gêneros
-            HStack {
-                if let genres = mv.movieItem.genres {
-                    ForEach(genres, id: \.id){
-                        genre in
-                        GenresDesign(name: genre.name ?? "") //Esta struct define o visual de todos os gêneros
+                //MARK: - Todos os gêneros
+                HStack {
+                    if let genres = mv.movieItem.genres {
+                        ForEach(genres, id: \.id){
+                            genre in
+                            GenresDesign(name: genre.name ?? "") //Esta struct define o visual de todos os gêneros
+                        }
                     }
                 }
-            }
                 
                 
                 
@@ -79,7 +72,7 @@ struct MovieItem: View {
                     //MARK: - Nota do filme (estrelas)
                     HStack {
                         if let voteAverage = mv.movieItem.voteAverage {
-
+                            
                             let average = voteAverage / 2
                             let fullStars = Int(average)
                             let hasHalfStar = (average - Double(fullStars)) >= 0.5
@@ -99,7 +92,7 @@ struct MovieItem: View {
                                         .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
                                 }
                             }
-                        
+                            
                         }
                         Spacer()
                         
@@ -108,7 +101,7 @@ struct MovieItem: View {
                             if mv.isFavorite == nil {
                                 mv.isFavorite = false
                             }
-
+                            
                             mv.isFavorite?.toggle()
                         } label: {                 //MARK: Estilização do button
                             Image(systemName: mv.isFavorite ?? false ? "heart.fill" : "heart")
@@ -116,13 +109,13 @@ struct MovieItem: View {
                                 .scaledToFit()
                                 .frame(width: 26, height: 26)
                                 .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
-
+                            
                         }
                         
-                       
-
-
-
+                        
+                        
+                        
+                        
                     }
                     
                     //MARK: - Atores:
@@ -131,49 +124,44 @@ struct MovieItem: View {
                         .font(.title)
                         .foregroundColor(.white)
                         .bold()
-                        //ScrollView que contém todos os atores
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack {
-                                if let casts = mv.castResponce?.cast {
-                                    ForEach(casts) { cast in
-                                        //Design da imagem dos atores
-                                        VStack {
-                                            if let profilePath = cast.profilePath {
-                                                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(profilePath)")) { phase in
-                                                    if let image = phase.image {
-                                                        image //Design da imagem dos atores
-                                                            .resizable()
-                                                            .aspectRatio(contentMode: .fill)
-                                                            .frame(width: 96, height: 144)
-                                                            .cornerRadius(10)
-                                                    } else if phase.error != nil {
-                                                        Color.red // Mostrar algo em caso de erro
-                                                    } else {
-                                                        ProgressView()
-                                                    }
+                    //ScrollView que contém todos os atores
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack {
+                            if let casts = mv.castResponce?.cast {
+                                ForEach(casts) { cast in
+                                    //Design da imagem dos atores
+                                    VStack {
+                                        if let profilePath = cast.profilePath {
+                                            AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(profilePath)")) { phase in
+                                                if let image = phase.image {
+                                                    image //Design da imagem dos atores
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .frame(width: 96, height: 144)
+                                                        .cornerRadius(10)
+                                                } else if phase.error != nil {
+                                                    Color.red // Mostrar algo em caso de erro
+                                                } else {
+                                                    ProgressView()
                                                 }
-                                                .frame(width: 96, height: 144)
-                                                .clipShape(Rectangle())
-                                                
-                                                
                                             }
-
-                                            Text(cast.name)
-                                                .foregroundColor(.white)
+                                            .frame(width: 96, height: 144)
+                                            .clipShape(Rectangle())
+                                            
+                                            
                                         }
-                                        .frame(width: 96)
+                                        
+                                        Text(cast.name)
+                                            .foregroundColor(.white)
                                     }
+                                    .frame(width: 96)
                                 }
                             }
                         }
                     }
-                
-
-                
-                
+                }
                 
             } // MARK: VStack principal
-            //    .frame(width: 360)
             .padding(.top, 25)
             .padding(.horizontal)
             .background(.black)
@@ -186,28 +174,8 @@ struct MovieItem: View {
             do {
                 try? await mv.getMovie()
                 try? await mv.getCasts()
-//                movieItem = try await movieServe?.getMovie(id: movieItem!.id)
-//                castResponce = try await movieServe?.getCastMenber(idMovie: mv.movieItem!.id)
-
                 
-            } catch GHError.invalidURL {
-                print("Invalid URL")
-            } catch GHError.invalidData {
-                print("Invalid response")
-            } catch GHError.invalidResponse {
-                print("Invalid data")
-            } catch {
-                print("Unexpected Error")
             }
         }
     }
 }
-        
-
-//struct MovieItem_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MovieItem(movieItem:)
-//    }
-//}
-//
-

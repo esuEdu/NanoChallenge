@@ -14,7 +14,7 @@ class MovieHomeViewModel: ObservableObject {
     
     @Published var moviesFamily: responceDiscoverMovies?
     @Published var moviesDocumentary: responceDiscoverMovies?
-
+    
     @Published var moviesAdventure: responceDiscoverMovies?
     @Published var moviesRomance: responceDiscoverMovies?
     
@@ -35,23 +35,23 @@ class MovieHomeViewModel: ObservableObject {
      criar uma unção para cada tipo de filme
      */
     
-        func getAdventure() async throws {
-            do {
-                let responce = try await service.getDiscoverMoviesGenre(idGenre: GenreMovie.adventure.rawValue)
-                await MainActor.run(body: {
-                    moviesAdventure = responce
-                })
-            }
+    func getAdventure() async throws {
+        do {
+            let responce = try await service.getDiscoverMoviesGenre(idGenre: GenreMovie.adventure.rawValue)
+            await MainActor.run(body: {
+                moviesAdventure = responce
+            })
         }
+    }
     
-        func getRomance() async throws {
-            do {
-                let responce = try await service.getDiscoverMoviesGenre(idGenre: GenreMovie.romance.rawValue)
-                await MainActor.run(body: {
-                    moviesRomance = responce
-                })
-            }
+    func getRomance() async throws {
+        do {
+            let responce = try await service.getDiscoverMoviesGenre(idGenre: GenreMovie.romance.rawValue)
+            await MainActor.run(body: {
+                moviesRomance = responce
+            })
         }
+    }
     
     func getFamily() async throws {
         do {
@@ -70,7 +70,7 @@ class MovieHomeViewModel: ObservableObject {
             })
         }
     }
-
+    
     
     func getMoviesByWorld(search: String) async throws {
         do {
@@ -80,8 +80,6 @@ class MovieHomeViewModel: ObservableObject {
             })
         }
     }
-
-    
     
 }
 
