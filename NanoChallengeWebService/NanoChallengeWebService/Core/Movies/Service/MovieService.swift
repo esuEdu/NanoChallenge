@@ -23,8 +23,6 @@ class MovieService {
         let (data,response) = try await URLSession.shared.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            let response = response as? HTTPURLResponse
-            //            print(response?.statusCode)
             throw GHError.invalidResponse
         }
         
@@ -46,8 +44,6 @@ class MovieService {
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            let response = response as? HTTPURLResponse
-            //            print(response?.statusCode)
             throw GHError.invalidResponse
         }
         
@@ -71,8 +67,6 @@ class MovieService {
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            let response = response as? HTTPURLResponse
-            //            print(response?.statusCode)
             throw GHError.invalidResponse
         }
         
@@ -96,8 +90,6 @@ class MovieService {
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            let response = response as? HTTPURLResponse
-            //            print(response?.statusCode)
             throw GHError.invalidResponse
         }
         
@@ -121,8 +113,6 @@ class MovieService {
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            let response = response as? HTTPURLResponse
-            //            print(response?.statusCode)
             throw GHError.invalidResponse
         }
         
