@@ -124,19 +124,22 @@ struct MovieItem: View {
                     }
                     
                     //MARK: - Atores:
+                    //Título da sessão de atores
                     Text("Atores")
                         .font(.title)
                         .foregroundColor(.white)
                     HStack {
+                        //ScrollView que contém todos os atores
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack {
                                 if let casts = castResponce?.cast {
                                     ForEach(casts) { cast in
+                                        //Design da imagem dos atores
                                         VStack {
                                             if let profilePath = cast.profilePath {
                                                 AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(profilePath)")) { phase in
                                                     if let image = phase.image {
-                                                        image
+                                                        image //Design da imagem dos atores
                                                             .resizable()
                                                             .aspectRatio(contentMode: .fill)
                                                             .frame(width: 96, height: 144)
