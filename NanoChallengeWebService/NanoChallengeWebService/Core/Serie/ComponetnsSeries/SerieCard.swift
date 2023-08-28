@@ -35,9 +35,13 @@ struct SerieCard: View {
             }.frame(width: 185, height: 250, alignment: .top)
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .shadow(radius: 8, x: 5, y: 5)
-            Text(name)
-                .font(.custom("Poppins", size: 22))
+            VStack {
+                Text(name)
+                    .font(.custom("Poppins", size: 22))
                 .foregroundColor(.white)
+                .lineLimit(2)
+                .frame(maxWidth: 140)
+            }
                 
         } // MARK: Primeira VSTACK
 
