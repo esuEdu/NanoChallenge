@@ -8,19 +8,19 @@
 import Foundation
 import SwiftUI
 
-struct Movie: Codable, Identifiable {
+struct Movie: Codable, Identifiable, Hashable {
     var isFavorite: Bool? = false
     let adult: Bool
     let backdropPath: String?
     let genres: [Genre]?
     let homepage: String?
     let id: Int
-//    let imdbID: String
+    // let imdbID: String
     let originalTitle: String?
     let overview: String?
     let popularity: Float?
     let releaseDate: String?
-    let revenue: Int? //receita arrecadado pelos filmes
+    let revenue: Int? // receita arrecadado pelos filmes
     let runtime: Int? // duração
     let spokenLanguages: [SpokenLanguage]?
     let status: String? // em produção, concluído, cancelado...
@@ -28,8 +28,18 @@ struct Movie: Codable, Identifiable {
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
-
+    
+    // Implementação do método hash(into:) para conformar ao protocolo Hashable
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id) // Combine com o id ou outros atributos relevantes
+    }
+    
+    // Implementação da função '==' para conformar ao protocolo Equatable
+    static func ==(lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
+
 
 struct Collection: Codable {
     let id: Int?

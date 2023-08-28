@@ -23,8 +23,8 @@ struct MovieItem: View {
             
             //MARK: - IMAGEM
             GeometryReader { reader in
-                if (mv.movieItem?.backdropPath) != nil {
-                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(mv.movieItem?.backdropPath ?? "")")) { image in image
+                if (mv.movieItem.backdropPath) != nil {
+                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(mv.movieItem.backdropPath ?? "")")) { image in image
                         
                         //MARK: Estilização do banner (imagem) do filme
                             .resizable()
@@ -46,14 +46,14 @@ struct MovieItem: View {
             }
             .frame(height: 480)
             VStack(alignment: .leading, spacing: 15){
-                Text(mv.movieItem?.title ?? "")
+                Text(mv.movieItem.title ?? "")
                     .font(.system(size: 35, weight: .bold))
                     .foregroundColor(.white)
                 
                 
             //MARK: - Todos os gêneros
             HStack {
-                if let genres = mv.movieItem?.genres {
+                if let genres = mv.movieItem.genres {
                     ForEach(genres, id: \.id){
                         genre in
                         GenresDesign(name: genre.name ?? "") //Esta struct define o visual de todos os gêneros
@@ -64,12 +64,12 @@ struct MovieItem: View {
                 
                 
                 //MARK: Descrição do filme
-                if mv.movieItem?.overview == ""{
+                if mv.movieItem.overview == ""{
                     Text("Description not found")
                         .padding(.top)
                         .foregroundColor(Color.white)
                 } else {
-                    Text(mv.movieItem?.overview ?? "Sem overview")
+                    Text(mv.movieItem.overview ?? "Sem overview")
                         .padding(.top)
                         .foregroundColor(Color.white)
                 }
@@ -78,7 +78,7 @@ struct MovieItem: View {
                     
                     //MARK: - Nota do filme (estrelas)
                     HStack {
-                        if let voteAverage = mv.movieItem?.voteAverage {
+                        if let voteAverage = mv.movieItem.voteAverage {
 
                             let average = voteAverage / 2
                             let fullStars = Int(average)
@@ -105,13 +105,13 @@ struct MovieItem: View {
                         
                         //MARK: - Botão de favoritos
                         Button {
-                            if isFavorite == nil {
-                                isFavorite = false
+                            if mv.isFavorite == nil {
+                                mv.isFavorite = false
                             }
 
-                            isFavorite?.toggle()
+                            mv.isFavorite?.toggle()
                         } label: {                 //MARK: Estilização do button
-                            Image(systemName: isFavorite ?? false ? "heart.fill" : "heart")
+                            Image(systemName: mv.isFavorite ?? false ? "heart.fill" : "heart")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 26, height: 26)
@@ -134,7 +134,7 @@ struct MovieItem: View {
                         //ScrollView que contém todos os atores
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack {
-                                if let casts = castResponce?.cast {
+                                if let casts = mv.castResponce?.cast {
                                     ForEach(casts) { cast in
                                         //Design da imagem dos atores
                                         VStack {
@@ -184,10 +184,10 @@ struct MovieItem: View {
         .background(.black)
         .task {
             do {
-                try? await mv.getMovie(id: movieItem!.id)
-                
+                try? await mv.getMovie()
+                try? await mv.getCasts()
 //                movieItem = try await movieServe?.getMovie(id: movieItem!.id)
-                castResponce = try await movieServe?.getCastMenber(idMovie: movieItem!.id)
+//                castResponce = try await movieServe?.getCastMenber(idMovie: mv.movieItem!.id)
 
                 
             } catch GHError.invalidURL {
