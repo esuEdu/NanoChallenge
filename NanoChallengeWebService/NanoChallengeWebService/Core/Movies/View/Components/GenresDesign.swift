@@ -8,7 +8,7 @@
 import SwiftUI
 
 ///Define o Visual de todos os gêneros
-struct GenresDesign: View {
+struct GenresDesignMovie: View {
     var name: String
     
     var body: some View {

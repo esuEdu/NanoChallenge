@@ -12,7 +12,7 @@ struct Movie: Codable, Identifiable, Hashable {
     var isFavorite: Bool? = false
     let adult: Bool
     let backdropPath: String?
-    let genres: [Genre]?
+    let genres: [GenreMovieResponce]?
     let homepage: String?
     let id: Int
     // let imdbID: String
@@ -48,7 +48,7 @@ struct Collection: Codable {
     let backdropPath: String?
 }
 
-struct Genre: Codable {
+struct GenreMovieResponce: Codable {
     let id: Int?
     let name: String?
 }
