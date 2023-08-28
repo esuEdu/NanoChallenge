@@ -17,7 +17,6 @@ class MovieService {
         let idString = String(id)
         
         let endpoint = "https://api.themoviedb.org/3/movie/\(idString)?api_key=\(apiKey)"
-        //curl "https://api.themoviedb.org/3/movie/157336?api_key=51b118788f608c33046a9420adb65886"
         
         guard let url = URL(string: endpoint) else { throw GHError.invalidURL }
         

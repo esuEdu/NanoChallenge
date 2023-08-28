@@ -16,7 +16,7 @@ struct ScrollMovies: View {
             LazyHStack {
                 ForEach(movies) { movie in
                     NavigationLink {
-                        MovieItem(movieItem: movie)
+                        MovieItem(mv: movie)
                     } label: {
                         MovieDesignScrollView(movie: movie)
                     }
@@ -27,11 +27,34 @@ struct ScrollMovies: View {
 }
 
 class MovieItemVM: ObservableObject {
-    private var movieServe: MovieService? = MovieService() //Classe que contém lógica de requisições de api.
-
-    @Published var movie: MovieItem?
+    private var service = MovieService()
+    
+    @Published var castResponce: CastResponse?
+    @Published var movieItem: Movie
+    
     @Published var isFavorite: Bool? = nil //Variável criada para favoritar filme
-    @Published var movieServe: MovieService? = MovieService() //Classe que contém lógica de requisições de api.
 
+    init( movieItem: Movie) {
 
+        self.movieItem = movieItem
+        
+    }
+    
+    func getMovie(id: Int) async throws {
+        do {
+            let responce = try await service.getMovie(id: id)
+            await MainActor.run(body: {
+                movieItem = responce
+            })
+        }
+    }
+    
+//    func getCasts() async throws {
+//        do {
+//            let responce = try await service.getCastMenber(idMovie: movie?.id ?? "")
+//            await MainActor.run(body: {
+//                movie = responce
+//            })
+//        }
+//    }
 }
