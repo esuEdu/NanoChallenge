@@ -78,6 +78,7 @@ struct AnimeHomeView: View {
                 }
             }
         }
+        .background(Color("BackGroundColor"))
     }
 }
 
