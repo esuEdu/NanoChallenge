@@ -18,6 +18,14 @@ struct ContentView: View {
                 .tabItem {
                     Label("Movies", systemImage: "pawprint.fill")
                 }
+                .tabItem{
+                    Label("Anime", systemImage: "pawprint.fill")
+                }
+            MainSerieView()
+                .tabItem{
+                    Label("Serie", systemImage: "tv")
+                }
+            
         }
     }
 }
