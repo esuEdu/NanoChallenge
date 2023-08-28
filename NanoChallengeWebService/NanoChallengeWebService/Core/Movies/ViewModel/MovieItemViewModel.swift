@@ -11,20 +11,16 @@ import SwiftUI
 class MovieHomeViewModel: ObservableObject {
     private var service = MovieService()
     @Published var responseMovieDiscover: responceDiscoverMovies?
+    
+    @Published var moviesFamily: responceDiscoverMovies?
+    @Published var moviesDocumentary: responceDiscoverMovies?
+
     @Published var moviesAdventure: responceDiscoverMovies?
     @Published var moviesRomance: responceDiscoverMovies?
     
     /*
      para resolver a treta do movie único, crie uma view model para apenas para getMovieItem
      */
-    func getMovie(idMovie: Int) async throws {
-        do {
-            let responce = try await service.getMovie(id: idMovie)
-            await MainActor.run(body: {
-                
-            })
-        }
-    }
     
     func getDiscoverMovies() async throws {
         do {
@@ -56,6 +52,25 @@ class MovieHomeViewModel: ObservableObject {
                 })
             }
         }
+    
+    func getFamily() async throws {
+        do {
+            let responce = try await service.getDiscoverMoviesGenre(idGenre: GenreMovie.family.rawValue)
+            await MainActor.run(body: {
+                moviesFamily = responce
+            })
+        }
+    }
+    
+    func getDocumentary() async throws {
+        do {
+            let responce = try await service.getDiscoverMoviesGenre(idGenre: GenreMovie.documentary.rawValue)
+            await MainActor.run(body: {
+                moviesDocumentary = responce
+            })
+        }
+    }
+
     
     func getMoviesByWorld(search: String) async throws {
         do {

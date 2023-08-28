@@ -16,6 +16,13 @@ struct MovieHomeView: View {
                     HearderSrollMovie(title: "Movies") //Header do ScrollMovies (título e "All Movies")
                     ScrollMovies(movies:  mv.responseMovieDiscover?.results ?? []) //ScrollMovies exibindo todos os filmes.
                     
+                    HearderSrollMovie(title: "Family") //Header do ScrollMovies (título e "All Movies")
+                    ScrollMovies(movies:  mv.moviesFamily?.results ?? []) //ScrollMovies exibindo todos os filmes.
+                    
+                    HearderSrollMovie(title: "Documentary") //Header do ScrollMovies (título e "All Movies")
+                    ScrollMovies(movies:  mv.moviesDocumentary?.results ?? []) //ScrollMovies exibindo todos os filmes.
+                    
+                    
                     //MARK: Filmes de ação
                     HearderSrollMovie(title: GenreMovie.adventure.name) //GenreMovie.adventure.name = "adventure"
                     ScrollMovies(movies:  mv.moviesAdventure?.results ?? [])
@@ -31,16 +38,18 @@ struct MovieHomeView: View {
                     try? await mv.getDiscoverMovies()
                     try? await mv.getAdventure()
                     try? await mv.getRomance()
+                    try? await mv.getFamily()
+                    try? await mv.getDocumentary()
                 }
-                
+                .background(CustomColor.black)
                 .navigationTitle("Movies")
                 //            }
                 
             }
         }
     }
-        
 }
+
 
 struct MovieHomeView_Previews: PreviewProvider {
     static var previews: some View {

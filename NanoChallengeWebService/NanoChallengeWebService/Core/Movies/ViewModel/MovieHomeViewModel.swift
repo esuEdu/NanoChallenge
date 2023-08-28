@@ -26,3 +26,12 @@ struct ScrollMovies: View {
     }
 }
 
+class MovieItemVM: ObservableObject {
+    private var movieServe: MovieService? = MovieService() //Classe que contém lógica de requisições de api.
+
+    @Published var movie: MovieItem?
+    @Published var isFavorite: Bool? = nil //Variável criada para favoritar filme
+    @Published var movieServe: MovieService? = MovieService() //Classe que contém lógica de requisições de api.
+
+
+}

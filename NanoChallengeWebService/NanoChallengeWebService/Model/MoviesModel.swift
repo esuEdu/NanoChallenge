@@ -64,27 +64,6 @@ enum GHError: Error {
     case invalidData
 }
 
-//struct GenresDesign: PreviewProvider {
-//    typealias Previews = <#type#>
-//
-//    var name: String?
-//
-////    static var previews: some View {
-////        GenresDesign(name: "Ação")
-////    }
-//
-//    var body: some View {
-//        Button(action: {}) {
-//            if let nameGenre = name {
-//                Text(nameGenre)
-//            } else {
-//                Text("Gênero inexistente")
-//            }
-//        }
-//    }
-//}
-
-
 enum GenreMovie: Int, CaseIterable {
     case action = 28
     case adventure = 12
@@ -142,15 +121,16 @@ struct CastMember: Codable, Identifiable {
     let adult: Bool
     let gender: Int?
     let id: Int
-//    let knownForDepartment: String?
     let name: String
     let originalName: String
     let popularity: Double?
     let profilePath: String?
-//    let castId: Int
     let character: String?
-//    let creditId: String?
     let order: Int?
 }
 
-
+struct CustomColor {
+    static let black = Color(red: 0, green: 0, blue: 0)
+    static let white = Color(red: 1, green: 1, blue: 1)
+    static let secondary = Color(red: 0.29, green: 0.69, blue: 0.72)
+}

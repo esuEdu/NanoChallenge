@@ -16,6 +16,7 @@ struct HearderSrollMovie: View {
         HStack {
             Text(title) //Título da lista de filmes
                 .font(.title)
+                .foregroundColor(CustomColor.white)
                 .padding(.horizontal)
             Spacer()
             Button { //Botão ao lado do título (Tem função meramente visual)
@@ -23,7 +24,7 @@ struct HearderSrollMovie: View {
             } label: {
                 Text("View All")
                     .font(.title2)
-                    .foregroundColor(.black)
+                    .foregroundColor(CustomColor.secondary)
             }
             .padding()
 

@@ -125,10 +125,10 @@ struct MovieItem: View {
                     
                     //MARK: - Atores:
                     //Título da sessão de atores
-                    Text("Atores")
+                    Text("Creditos")
                         .font(.title)
                         .foregroundColor(.white)
-                    HStack {
+                        .bold()
                         //ScrollView que contém todos os atores
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack {
@@ -147,15 +147,16 @@ struct MovieItem: View {
                                                     } else if phase.error != nil {
                                                         Color.red // Mostrar algo em caso de erro
                                                     } else {
-                                                        ProgressView() // Mostrar um indicador de progresso enquanto a imagem é carregada
+                                                        ProgressView()
                                                     }
                                                 }
                                                 .frame(width: 96, height: 144)
-                                                .background(Color.white)
                                                 .clipShape(Rectangle())
+                                                
+                                                
                                             }
 
-                                            Text(cast.name ?? "") // Certifique-se de lidar com valores possivelmente nulos
+                                            Text(cast.name)
                                                 .foregroundColor(.white)
                                         }
                                         .frame(width: 96)
@@ -164,7 +165,7 @@ struct MovieItem: View {
                             }
                         }
                     }
-                }
+                
 
                 
                 
