@@ -45,7 +45,7 @@ struct AnimeHomeView: View {
                             .onAppear {
                                 if anime == viewModel.popularAnimeList.last && viewModel.hasNextPagePopular == true {
                                     Task {
-                                        try? await viewModel.fetchPopularAnimeData()
+                                        try? await viewModel.fetchPopularAnimeNextPage()
                                     }
                                 }
                             }
