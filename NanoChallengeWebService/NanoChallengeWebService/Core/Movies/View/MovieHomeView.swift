@@ -10,7 +10,7 @@ struct MovieHomeView: View {
             NavigationView {
                 ScrollView {
                     
-                    HearderSrollMovie(title: "Movies") //Header do ScrollMovies (título e "All Movies")
+                    HearderSrollMovie(title: "Recents") //Header do ScrollMovies (título e "All Movies")
                     ScrollMovies(movies:  mv.responseMovieDiscover?.results ?? []) //ScrollMovies exibindo todos os filmes.
                     
                     HearderSrollMovie(title: "Family")
@@ -35,10 +35,10 @@ struct MovieHomeView: View {
                     try? await mv.getFamily()
                     try? await mv.getDocumentary()
                 }
-                .background(CustomColor.black)
+                .background(Color("BackGroundColor"))
                 .navigationTitle("Movies")
             }
-        }
+        }.background(Color("BackGroundColor"))
     }
 }
 
@@ -46,6 +46,7 @@ struct MovieHomeView: View {
 struct MovieHomeView_Previews: PreviewProvider {
     static var previews: some View {
         MovieHomeView()
+            .preferredColorScheme(.dark)
     }
 }
 

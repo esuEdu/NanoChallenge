@@ -13,6 +13,7 @@ struct NanoChallengeWebServiceApp: App {
         WindowGroup {
             NavigationStack{
                 ContentView()
+                    .preferredColorScheme(.dark)
                     .navigationDestination(for: AnimeModel.self ) { anime in
                         AnimeView(anime: anime)
                     }
