@@ -4,32 +4,26 @@ import SwiftUI
 struct MovieHomeView: View {
     
     @StateObject var mv:MovieHomeViewModel = MovieHomeViewModel()
-    @State var text: String = ""
+    
     var body: some View {
         VStack {
             NavigationView {
-                
                 ScrollView {
                     
-                    
-                    //MARK: Filmes recentes
                     HearderSrollMovie(title: "Movies") //Header do ScrollMovies (título e "All Movies")
                     ScrollMovies(movies:  mv.responseMovieDiscover?.results ?? []) //ScrollMovies exibindo todos os filmes.
                     
-                    HearderSrollMovie(title: "Family") //Header do ScrollMovies (título e "All Movies")
-                    ScrollMovies(movies:  mv.moviesFamily?.results ?? []) //ScrollMovies exibindo todos os filmes.
+                    HearderSrollMovie(title: "Family")
+                    ScrollMovies(movies:  mv.moviesFamily?.results ?? [])
                     
-                    HearderSrollMovie(title: "Documentary") //Header do ScrollMovies (título e "All Movies")
-                    ScrollMovies(movies:  mv.moviesDocumentary?.results ?? []) //ScrollMovies exibindo todos os filmes.
+                    HearderSrollMovie(title: "Documentary")
+                    ScrollMovies(movies:  mv.moviesDocumentary?.results ?? [])
                     
                     
-                    //MARK: Filmes de ação
-                    HearderSrollMovie(title: GenreMovie.adventure.name) //GenreMovie.adventure.name = "adventure"
+                    HearderSrollMovie(title: GenreMovie.adventure.name)
                     ScrollMovies(movies:  mv.moviesAdventure?.results ?? [])
                     
-                    //MARK: Filmes de romancex
-                    HearderSrollMovie(title: GenreMovie.romance.name)   //GenreMovie.romance.name = "romance"
-                    
+                    HearderSrollMovie(title: GenreMovie.romance.name)
                     ScrollMovies(movies: mv.moviesRomance?.results ?? [])
                     
                     
@@ -43,8 +37,6 @@ struct MovieHomeView: View {
                 }
                 .background(CustomColor.black)
                 .navigationTitle("Movies")
-                //            }
-                
             }
         }
     }
