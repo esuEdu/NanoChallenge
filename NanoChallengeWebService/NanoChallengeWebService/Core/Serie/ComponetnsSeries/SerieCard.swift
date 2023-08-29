@@ -21,7 +21,7 @@ struct SerieCard: View {
                     image
                         .resizable()
                         .scaledToFill()
-        
+                    
                 } placeholder: {
                     RoundedRectangle(cornerRadius: 16)
                         .stroke(.gray.opacity(0.5), lineWidth: 1)
@@ -33,18 +33,18 @@ struct SerieCard: View {
                         }
                 }
             }.frame(width: 185, height: 250, alignment: .top)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
-            .shadow(radius: 8, x: 5, y: 5)
+                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .shadow(radius: 8, x: 5, y: 5)
             VStack {
                 Text(name)
                     .font(.custom("Poppins", size: 22))
-                .foregroundColor(.white)
-                .lineLimit(2)
-                .frame(maxWidth: 150)
-
+                    .foregroundColor(.white)
+                    .lineLimit(2)
+                    .frame(maxWidth: 150)
                 
-        } // MARK: Primeira VSTACK
-
+                
+            } // MARK: Primeira VSTACK
+        }
     }
 }
 
