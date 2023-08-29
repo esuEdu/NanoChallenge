@@ -35,6 +35,10 @@ struct ContentView_Previews: PreviewProvider {
         
         NavigationStack {
             ContentView()
+                .preferredColorScheme(.dark)
+                .navigationDestination(for: AnimeModel.self ) { anime in
+                    AnimeView(anime: anime)
+                }
         }
     }
 }

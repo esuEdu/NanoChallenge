@@ -35,4 +35,5 @@ class AnimeViewModel: ObservableObject {
         }
         return htmlString
     }
+    
 }

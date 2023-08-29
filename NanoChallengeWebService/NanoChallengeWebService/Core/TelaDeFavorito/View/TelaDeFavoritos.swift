@@ -26,7 +26,7 @@ struct TelaDeFavoritos: View {
             List{
                 if selected == 1{
                     ForEach(vm.listaAnimes){ i in
-                        Text(i.title.romaji ?? i.title.native ?? "sem titulo")
+                        AnimeItemView(anime: i)
                     }.onDelete(perform: vm.dataController.remove)
                 }
                 
@@ -38,7 +38,7 @@ struct TelaDeFavoritos: View {
                 
                 if selected == 3{
                     ForEach(vm.listaSerie){ i in
-                        Text(i.name ?? "sem titulo")
+                        Text(i.name )
                     }.onDelete(perform: vm.dataController.remove)
                 }
             }

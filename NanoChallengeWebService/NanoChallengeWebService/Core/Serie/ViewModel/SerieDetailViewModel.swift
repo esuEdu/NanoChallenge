@@ -26,7 +26,7 @@ class SeriesDetailViewlModel: ObservableObject{
         guard let url = URL(string: urlString) else {isLoading = false; return}
                 
         do {
-            let (data, response) = try await URLSession.shared.data(from: url)
+            let (data, _) = try await URLSession.shared.data(from: url)
             
             guard let returned = try? JSONDecoder().decode(Series.self, from: data) else {
                 print(" 👺 Erro em fazer o decode")
