@@ -19,6 +19,7 @@ class SeriesDetailViewlModel: ObservableObject{
     @Published var genres: [String] = []
     @Published var status: String = ""
     @Published var summary: String = ""
+    @Published var isFavorite:Bool = false
 
     func getData() async {
         isLoading = true

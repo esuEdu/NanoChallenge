@@ -128,11 +128,6 @@ struct MovieItem: View {
                                     .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
                             }
                         }
-                        
-                        
-                        
-                        
-                        
                     }
                     
                     //MARK: - Atores:

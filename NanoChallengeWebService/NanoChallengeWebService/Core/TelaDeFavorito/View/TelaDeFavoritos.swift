@@ -9,9 +9,10 @@ import SwiftUI
 
 struct TelaDeFavoritos: View {
     @StateObject private var vm = TelaDeFavoritosViewModel()
-    @State private var selected = 0
+    @State var selected = 0
     var body: some View {
         VStack{
+            
             Picker("escolha o tipo", selection: $selected){
                 Text("anime").tag(1)
                 Text("filme").tag(2)
@@ -22,20 +23,33 @@ struct TelaDeFavoritos: View {
             .position(x: width * 0.45,y: height*0.05)
             .padding(25)
             
-            if selected == 1{
-                List{
+            List{
+                if selected == 1{
                     ForEach(vm.listaAnimes){ i in
                         Text(i.title.romaji ?? i.title.native ?? "sem titulo")
-                    }
+                    }.onDelete(perform: vm.dataController.remove)
+                }
+                
+                if selected == 2{
+                    ForEach(vm.listaFilmes){ i in
+                        Text(i.title ?? "sem titulo")
+                    }.onDelete(perform: vm.dataController.remove)
+                }
+                
+                if selected == 3{
+                    ForEach(vm.listaSerie){ i in
+                        Text(i.name ?? "sem titulo")
+                    }.onDelete(perform: vm.dataController.remove)
                 }
             }
-            if selected == 2{
-                ForEach(vm.listaFilmes){ i in
-                    Text(i.title ?? "sem titulo")
+            .listStyle(.plain)
+            .position(x: width*0.5, y: height*0.05)
+            .navigationTitle("Favoritos")
+        }.task {
+                do{
+                    await vm.atualizarListas()
                 }
             }
-        }.navigationTitle("Favoritos")
-        Spacer()
     }
 }
 

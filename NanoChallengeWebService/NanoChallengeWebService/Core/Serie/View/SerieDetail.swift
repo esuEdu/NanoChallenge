@@ -81,12 +81,34 @@ struct TVSerieDetail: View {
                     Spacer()
                     // Botaão de favoritos
                     Button {
-                       
+                        let test = Favorito(context: dataController.container.viewContext)
+                        test.id = String(series.id)
+                        test.type = "serie"
+                        if !dataController.favoritos.contains(where:{ i in
+                            i.id == String(series.id)
+                        }){
+                            dataController.addFavorite(id: String(series.id), type: "serie")
+                            seriesDetailVM.isFavorite = true
+                        } else{
+                            dataController.delete(id: String(series.id), type: "serie")
+                            seriesDetailVM.isFavorite = false
+                        }
                     } label: {
-                        Image("corazon")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 26, height: 26)
+                        if dataController.favoritos.contains(where: { i in
+                            i.id == String(series.id)
+                        }) || seriesDetailVM.isFavorite == true{
+                            Image(systemName: "heart.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 26, height: 26)
+                                .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
+                        }else{
+                            Image(systemName: "heart")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 26, height: 26)
+                                .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
+                        }
                     }
               
                 }

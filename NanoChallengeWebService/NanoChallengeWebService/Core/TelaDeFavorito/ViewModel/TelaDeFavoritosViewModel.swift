@@ -14,11 +14,11 @@ class TelaDeFavoritosViewModel: ObservableObject{
     var am = FavoriteAnimeViewModel()
     var fm = FavoriteMovieViewModel()
     var sm = FavoriteSerieViewModel()
-    private var dataController = CoreDataController()
+    var dataController = CoreDataController()
     
     init(){}
     
-    func atualizarListas()async{
+    func atualizarListas() async {
         dataController.fetch()
         for i in dataController.favoritos{
             if let idString = i.id{
@@ -39,12 +39,16 @@ class TelaDeFavoritosViewModel: ObservableObject{
                                 }
                             }
                         }
-//                            else{
-//                            let serie = try await sm.fetchTVSerie(id: id)
-//                            if !listaSerie.contains(where: serie){
-//                                listaSerie.append(serie)
-//                            }
-//                        }
+                        else{
+                            let serie = try await sm.fetchTVSerie(id: id)
+                            if !listaSerie.contains(where: { i in
+                                i == serie
+                            }){
+                                DispatchQueue.main.async {
+                                    self.listaSerie.append(serie)
+                                }
+                            }
+                        }
                     }catch{
                         print("erro")
                     }

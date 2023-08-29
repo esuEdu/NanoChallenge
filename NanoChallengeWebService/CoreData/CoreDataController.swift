@@ -62,7 +62,12 @@ class CoreDataController{
         }
     }
     
-    func delete(index:IndexSet){
-        
+    func remove(at offsets: IndexSet){
+        for index in offsets {
+            let item = favoritos[index]
+            container.viewContext.delete(item)
+            saveData()
+            print("deletado")
+        }
     }
 }

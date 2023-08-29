@@ -11,15 +11,12 @@ struct ContentView: View {
     var body: some View {
         TabView{
             AnimeHomeView()
-            .tabItem{
-                Label("Anime", systemImage: "pawprint.fill")
-            }
+                .tabItem{
+                    Label("Anime", systemImage: "pawprint.fill")
+                }
             MovieHomeView()
                 .tabItem {
                     Label("Movies", systemImage: "pawprint.fill")
-                }
-                .tabItem{
-                    Label("Anime", systemImage: "pawprint.fill")
                 }
             MainSerieView()
                 .tabItem{
@@ -27,7 +24,7 @@ struct ContentView: View {
                 }
             TelaDeFavoritos()
                 .tabItem {
-                    Label("Favoritos", systemImage: "heart")
+                    Label("Favorito", systemImage: "heart")
                 }
         }
     }
