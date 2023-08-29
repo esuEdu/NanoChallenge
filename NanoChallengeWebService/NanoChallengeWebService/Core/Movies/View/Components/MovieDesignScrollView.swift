@@ -68,6 +68,5 @@ struct MovieDesignScrollView: View {
             }
         }
         .padding()
-        .background(.black)
     }
 }

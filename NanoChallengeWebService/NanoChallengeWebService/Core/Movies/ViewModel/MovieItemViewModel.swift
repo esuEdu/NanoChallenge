@@ -14,9 +14,19 @@ class MovieHomeViewModel: ObservableObject {
     
     @Published var moviesFamily: responceDiscoverMovies?
     @Published var moviesDocumentary: responceDiscoverMovies?
-    
     @Published var moviesAdventure: responceDiscoverMovies?
     @Published var moviesRomance: responceDiscoverMovies?
+    @Published var moviesByWorld: responceDiscoverMovies?
+    
+    @Published var searchText: String = "" {
+        didSet {
+            // Chame a função da ViewModel sempre que o searchText mudar
+            if !searchText.isEmpty {
+                getMoviesByWorld(search: searchText) // Não use await aqui
+            }
+        }
+    }
+
     
     /*
      para resolver a treta do movie único, crie uma view model para apenas para getMovieItem
@@ -72,14 +82,19 @@ class MovieHomeViewModel: ObservableObject {
     }
     
     
-    func getMoviesByWorld(search: String) async throws {
-        do {
-            let responce = try await service.getMoviesByWorld(search: search)
-            await MainActor.run(body: {
-                responseMovieDiscover = responce
-            })
+    func getMoviesByWorld(search: String) {
+        Task {
+            do {
+                let response = try await service.getMoviesByWorld(search: search)
+                await MainActor.run {
+                    self.moviesByWorld = response
+                }
+            } catch {
+                print("Error fetching movies by world: \(error)")
+            }
         }
     }
+
     
 }
 

@@ -107,7 +107,6 @@ struct MovieItem: View {
                             Image(systemName: mv.isFavorite ?? false ? "heart.fill" : "heart")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 26, height: 26)
                                 .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
                             
                         }

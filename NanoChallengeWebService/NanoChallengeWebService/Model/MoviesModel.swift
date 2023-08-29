@@ -140,7 +140,6 @@ struct CastMember: Codable, Identifiable {
 }
 
 struct CustomColor {
-    static let black = Color(red: 0, green: 0, blue: 0)
     static let white = Color(red: 1, green: 1, blue: 1)
     static let secondary = Color(red: 0.29, green: 0.69, blue: 0.72)
 }

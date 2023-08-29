@@ -16,7 +16,7 @@ struct ContentView: View {
             }
             MovieHomeView()
                 .tabItem {
-                    Label("Movies", systemImage: "pawprint.fill")
+                    Label("Movies", systemImage: "forward.fill")
                 }
                 .tabItem{
                     Label("Anime", systemImage: "pawprint.fill")
