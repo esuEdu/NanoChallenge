@@ -116,6 +116,7 @@ struct AnimeView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle((anime.title.english ?? anime.title.romaji ?? anime.title.native) ?? "null")
+            //blablabla
         }
     }
 }
