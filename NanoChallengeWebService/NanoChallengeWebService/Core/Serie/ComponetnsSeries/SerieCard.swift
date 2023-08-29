@@ -40,8 +40,8 @@ struct SerieCard: View {
                     .font(.custom("Poppins", size: 22))
                 .foregroundColor(.white)
                 .lineLimit(2)
-                .frame(maxWidth: 140)
-            }
+                .frame(maxWidth: 150)
+
                 
         } // MARK: Primeira VSTACK
 

@@ -61,5 +61,6 @@ struct MainSerieView: View {
 struct MainSerieView_Preview: PreviewProvider {
     static var previews: some View {
         MainSerieView()
+            .preferredColorScheme(.dark)
     }
 }
