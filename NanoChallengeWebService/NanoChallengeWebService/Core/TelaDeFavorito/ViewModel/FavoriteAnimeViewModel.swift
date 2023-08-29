@@ -7,19 +7,17 @@
 
 import Foundation
 
-class FavoriteViewModel: ObservableObject {
-    @Published var anime: [AnimeModel] = []
+class FavoriteAnimeViewModel: ObservableObject {
     let service = AnimeDataService()
     
-    func fetchAnimeData(id: Int) async throws {
+    func fetchAnimeData(id: Int) async throws -> [AnimeModel]{
         do {
             let response = try await service.getAnime(id: id)
-            await MainActor.run(body: {
-                self.anime.append(contentsOf: response)
-            })
+            return response
         }catch {
             print("Decoding Error: \(error)")
         }
+        return []
     }
     
     func removeHTMLTags(htmlString: String) -> String {

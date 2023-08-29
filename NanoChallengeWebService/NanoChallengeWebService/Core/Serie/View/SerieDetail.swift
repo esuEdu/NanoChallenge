@@ -81,7 +81,7 @@ struct TVSerieDetail: View {
                     Spacer()
                     // Botaão de favoritos
                     Button {
-                        dataController.addFavorite(id: String(series.id), type: "serie")
+                       
                     } label: {
                         Image("corazon")
                             .resizable()

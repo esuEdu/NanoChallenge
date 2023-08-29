@@ -9,6 +9,7 @@ import Foundation
 
 class AnimeViewModel: ObservableObject {
     @Published var anime: [AnimeModel] = []
+    @Published var isFavorite = false
     let service = AnimeDataService()
     
     func fetchAnimeData(id: Int) async throws {

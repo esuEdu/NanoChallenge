@@ -53,6 +53,7 @@ class SeriesDetailViewlModel: ObservableObject{
     @Published var genresTV: [Genre] = []
     @Published var number_of_seasons: Int = 0
     @Published var vote_average: Double = 0.0
+    @Published var nome:String = ""
     // Todos os eps
     @Published var allEpisodes: [Episode] = []
     
@@ -77,6 +78,7 @@ class SeriesDetailViewlModel: ObservableObject{
         self.number_of_seasons = response.number_of_seasons
         self.number_of_episodes = response.number_of_episodes
         self.vote_average = response.vote_average / 2
+        self.nome = response.name
     }
     
     func fetchEpisode(idSerie: Int, season: Int) async throws -> Episode{

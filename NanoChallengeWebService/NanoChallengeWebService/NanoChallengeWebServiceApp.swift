@@ -12,7 +12,7 @@ struct NanoChallengeWebServiceApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack{
-                MainSerieView()
+                ContentView()
                     .navigationDestination(for: AnimeModel.self ) { anime in
                         AnimeView(anime: anime)
                     }

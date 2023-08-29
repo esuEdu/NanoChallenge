@@ -10,7 +10,6 @@ import CoreData
 
 class CoreDataController{
     var favoritos:[Favorito] = []
-    var animes:[AnimeModel] = []
     let container = NSPersistentContainer(name: "FavoriteDataModel")
     
     init(){
@@ -35,7 +34,13 @@ class CoreDataController{
         let newFavorite = Favorito(context: container.viewContext)
         newFavorite.id = id
         newFavorite.type = type
-        saveData()
+        if self.favoritos.contains(newFavorite){
+            return
+        }else{
+            saveData()
+            fetch()
+            print("já está favoritado")
+        }
     }
     
     func saveData(){
@@ -45,5 +50,19 @@ class CoreDataController{
         }catch{
             print("erro ao salvar")
         }
+    }
+    
+    func delete(id:String, type:String){
+        for i in self.favoritos{
+            if i.id == id && i.type == type{
+                print("deletado")
+                container.viewContext.delete(i)
+                saveData()
+            }
+        }
+    }
+    
+    func delete(index:IndexSet){
+        
     }
 }

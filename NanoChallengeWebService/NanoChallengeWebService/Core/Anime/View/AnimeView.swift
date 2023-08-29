@@ -43,9 +43,31 @@ struct AnimeView: View {
                         }
                         
                         Button{
-                            dataController.addFavorite(id: String(anime.id), type: "anime")
+                            let test = Favorito(context: dataController.container.viewContext)
+                            test.id = String(anime.id)
+                            test.type = "anime"
+                            if !dataController.favoritos.contains(test){
+                                dataController.addFavorite(id: String(anime.id), type: "anime")
+                                viewModel.isFavorite.toggle()
+                            }
+
                         }label: {
-                            Image(systemName: "star")
+                            
+                            if !dataController.favoritos.contains(where: { i in
+                                i.id == String(anime.id)
+                            }) || viewModel.isFavorite == true{
+                                Image(systemName: "heart")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 26, height: 26)
+                                    .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
+                            }else{
+                                Image(systemName: "heart.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 26, height: 26)
+                                    .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
+                            }
                         }
                         
                         VStack(alignment: .leading) {

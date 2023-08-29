@@ -25,13 +25,19 @@ struct ContentView: View {
                 .tabItem{
                     Label("Serie", systemImage: "tv")
                 }
-            
+            TelaDeFavoritos()
+                .tabItem {
+                    Label("Favoritos", systemImage: "heart")
+                }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        
+        NavigationStack {
+            ContentView()
+        }
     }
 }

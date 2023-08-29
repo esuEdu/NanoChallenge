@@ -10,6 +10,7 @@ import SwiftUI
 struct MovieItem: View {
     
     @StateObject var mv:MovieItemVM
+    var dataController = CoreDataController()
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -98,18 +99,34 @@ struct MovieItem: View {
                         
                         //MARK: - Botão de favoritos
                         Button {
-                            if mv.isFavorite == nil {
+                            let test = Favorito(context: dataController.container.viewContext)
+                            test.id = String(mv.movieItem.id)
+                            test.type = "filme"
+                            if !dataController.favoritos.contains(where:{ i in
+                                i.id == String(mv.movieItem.id)
+                            }){
+                                dataController.addFavorite(id: String(mv.movieItem.id), type: "filme")
+                                mv.isFavorite = true
+                            } else{
+                                dataController.delete(id: String(mv.movieItem.id), type: "filme")
                                 mv.isFavorite = false
                             }
-                            
-                            mv.isFavorite?.toggle()
                         } label: {                 //MARK: Estilização do button
-                            Image(systemName: mv.isFavorite ?? false ? "heart.fill" : "heart")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 26, height: 26)
-                                .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
-                            
+                            if dataController.favoritos.contains(where: { i in
+                                i.id == String(mv.movieItem.id)
+                            }) || mv.isFavorite == true{
+                                Image(systemName: "heart.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 26, height: 26)
+                                    .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
+                            }else{
+                                Image(systemName: "heart")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 26, height: 26)
+                                    .foregroundColor(Color(red: 0.97, green: 0.48, blue: 0.33))
+                            }
                         }
                         
                         

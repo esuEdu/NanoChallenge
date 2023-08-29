@@ -26,7 +26,9 @@ class AnimeImageViewModel: ObservableObject {
         Task {
             do {
                 let image = try await dataService.getImage()
-                self.image = image
+                DispatchQueue.main.async {
+                    self.image = image
+                }
             } catch {
                 print("Error fetching anime image: \(error)")
             }
