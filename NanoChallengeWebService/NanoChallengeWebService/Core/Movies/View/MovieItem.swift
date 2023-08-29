@@ -188,6 +188,6 @@ struct MovieItem: View {
                 try? await mv.getCasts()
                 
             }
-        }
+        }.background(Color("BackGroundColor"))
     }
 }
