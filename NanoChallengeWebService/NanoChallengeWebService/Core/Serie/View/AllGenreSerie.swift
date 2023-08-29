@@ -38,7 +38,7 @@ struct AllGenreSerie: View {
                                                     .padding()
                                             }
                                     }
-                                }.frame(width: 185, height: 250, alignment: .top)
+                                }.frame(width: 175, height: 250, alignment: .top)
                                     .clipShape(RoundedRectangle(cornerRadius: 16))
                                     .shadow(radius: 8, x: 5, y: 5)
                             }
@@ -47,7 +47,12 @@ struct AllGenreSerie: View {
                 } .padding()
 
             }
-            .background(Color("BackGroundColor"))
+            .navigationTitle(genreName)
+          //  .navigationBarTitleDisplayMode(.inline)
+            .background(Image("RectangleDetailBG")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all))
             .task {
                 
                       await serieVM.fetchAllTVSeries(limit: 10000)

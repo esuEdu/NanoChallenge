@@ -12,7 +12,7 @@ struct AllSeries: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 15)], spacing: 15) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 15) {
                     ForEach(serieVM.tvSeriesArray) { serie in
                         NavigationLink {
                             TVSerieDetail(series: serie)
@@ -35,16 +35,25 @@ struct AllSeries: View {
                                                     .padding()
                                             }
                                     }
-                                }.frame(width: 185, height: 250, alignment: .top)
+                                }.frame(width: 175, height: 250, alignment: .top)
                                     .clipShape(RoundedRectangle(cornerRadius: 16))
                                     .shadow(radius: 8, x: 5, y: 5)
+                                   
                             }
                         }
+                      
                     }
-                } .padding()
-
+                    .padding(.horizontal)
+                   
+                }
+               
             }
-            .background(Color("BackGroundColor"))
+            .navigationTitle("Series")
+           // .navigationBarTitleDisplayMode(.inline)
+            .background(Image("RectangleDetailBG")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all))
             .task {
                 do {
                      await serieVM.fetchAllTVSeries(limit: 10000)
