@@ -1,26 +1,23 @@
 //
-//  AnimeViewModel.swift
+//  FavoriteViewModel.swift
 //  NanoChallengeWebService
 //
-//  Created by Eduardo on 25/08/23.
+//  Created by Luca Lacerda on 28/08/23.
 //
 
 import Foundation
 
-class AnimeViewModel: ObservableObject {
-    @Published var anime: [AnimeModel] = []
-    @Published var isFavorite = false
+class FavoriteAnimeViewModel: ObservableObject {
     let service = AnimeDataService()
     
-    func fetchAnimeData(id: Int) async throws {
+    func fetchAnimeData(id: Int) async throws -> [AnimeModel]{
         do {
             let response = try await service.getAnime(id: id)
-            await MainActor.run(body: {
-                self.anime = response
-            })
+            return response
         }catch {
             print("Decoding Error: \(error)")
         }
+        return []
     }
     
     func removeHTMLTags(htmlString: String) -> String {
@@ -35,5 +32,4 @@ class AnimeViewModel: ObservableObject {
         }
         return htmlString
     }
-    
 }

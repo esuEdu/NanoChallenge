@@ -35,7 +35,7 @@ class SeriesViewModel: ObservableObject {
         do {
             let (data, response) = try await URLSession.shared.data(from: url)
             
-            guard let respose = response as? HTTPURLResponse else {
+            guard response is HTTPURLResponse else {
                 print("👺 Erro no response")
                 return
             }

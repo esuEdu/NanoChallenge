@@ -57,7 +57,11 @@ struct TVSeries: Codable, Identifiable, Hashable {
 
 }
 
-struct TVEachSeries: Codable, Identifiable {
+struct TVEachSeries: Codable, Identifiable, Equatable {
+    static func == (lhs: TVEachSeries, rhs: TVEachSeries) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     let id: Int
     let name: String
     let popularity: Double

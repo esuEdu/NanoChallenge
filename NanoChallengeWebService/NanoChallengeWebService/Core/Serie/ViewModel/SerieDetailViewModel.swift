@@ -19,13 +19,14 @@ class SeriesDetailViewlModel: ObservableObject{
     @Published var genres: [String] = []
     @Published var status: String = ""
     @Published var summary: String = ""
+    @Published var isFavorite:Bool = false
 
     func getData() async {
         isLoading = true
         guard let url = URL(string: urlString) else {isLoading = false; return}
                 
         do {
-            let (data, response) = try await URLSession.shared.data(from: url)
+            let (data, _) = try await URLSession.shared.data(from: url)
             
             guard let returned = try? JSONDecoder().decode(Series.self, from: data) else {
                 print(" 👺 Erro em fazer o decode")
@@ -53,6 +54,7 @@ class SeriesDetailViewlModel: ObservableObject{
     @Published var genresTV: [Genre] = []
     @Published var number_of_seasons: Int = 0
     @Published var vote_average: Double = 0.0
+    @Published var nome:String = ""
     // Todos os eps
     @Published var allEpisodes: [Episode] = []
     
@@ -77,6 +79,7 @@ class SeriesDetailViewlModel: ObservableObject{
         self.number_of_seasons = response.number_of_seasons
         self.number_of_episodes = response.number_of_episodes
         self.vote_average = response.vote_average / 2
+        self.nome = response.name
     }
     
     func fetchEpisode(idSerie: Int, season: Int) async throws -> Episode{

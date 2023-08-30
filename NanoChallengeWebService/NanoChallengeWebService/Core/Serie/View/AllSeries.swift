@@ -55,14 +55,7 @@ struct AllSeries: View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all))
             .task {
-                do {
-                     await serieVM.fetchAllTVSeries(limit: 10000)
-                } catch {
-                    print("Erro ao puxar os dados do detalhe")
-                    if let decodingError = error as? DecodingError {
-                        print("Decoding error: \(decodingError)")
-                    }
-                }
+                    await serieVM.fetchAllTVSeries(limit: 10000)
         }
         }
     }

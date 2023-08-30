@@ -13,7 +13,7 @@ class MovieItemVM: ObservableObject {
     @Published var castResponce: CastResponse?
     @Published var movieItem: Movie
     
-    @Published var isFavorite: Bool? = nil //Variável criada para favoritar filme
+    @Published var isFavorite: Bool = false //Variável criada para favoritar filme
     
     init(movieItem: Movie) {
         
